@@ -24,7 +24,7 @@ body {
 
 .whole-window {
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   min-height: 100%;
   overflow-y: hidden;
   padding: 1.5rem 2rem;
@@ -44,7 +44,8 @@ a:hover{
 }
 
 .logos{
-  padding: 2rem;
+  font-weight: 400;
+  padding: 2rem 2rem;
   display: flex;
   align-items:flex-end;
   justify-content: flex-end;
@@ -55,8 +56,8 @@ a:hover{
 }
 
 .logos img{
-  margin: 0 1rem;
-  height: 40px;
+  margin-left: 2rem;
+  height: 30px;
 }
 
 .logos-inside{
@@ -70,6 +71,7 @@ a:hover{
   }
 
   .whole-window{
+    height: 100vh;
     padding: 3rem 4rem;
   }
 
@@ -81,8 +83,11 @@ a:hover{
     margin-bottom: 3rem;
   }
 
+  .logos{
+    padding: 1rem 2rem;
+  }
+
   .logos img{
-    margin: 0 1rem;
-    height: 50px;
+    height: 35px;
   }
 }
