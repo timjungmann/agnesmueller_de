@@ -1,0 +1,24 @@
+{# General #}
+<meta name="description" content="{{ seo.description }}">
+
+{# TODO: do we need this? #}
+{# {% if canonical %}
+    <link rel="canonical" href="{{ canonical }}" />
+{% endif %} #}
+
+{# Open graph related #}
+<meta property="og:title" content="{{ seo.title }}" />
+<meta property="og:type" content="{{ site.type }}" />
+<meta property="og:url" content="{{ site.url }}" />
+<meta property="og:image" content="{{ site.ogimage }}" />
+<meta property="og:site_name" content="{{ site.name }}" />
+<meta property="og:description" content="{{ seo.description }}" />
+
+{# Favicon #}
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/favicon/apple-touch-icon.png' | url }}">
+<link rel="icon" type="image/png" href="{{ '/assets/favicon/favicon-32x32.png' | url }}" sizes="32x32">
+<link rel="icon" type="image/png" href="{{ '/assets/favicon/favicon-16x16.png' | url }}" sizes="16x16">
+<link rel="icon" href="{{ '/favicon.ico' | url }}" sizes="any">
+<link rel="icon" href="{{ '/favicon.svg' | url }}" type="image/svg+xml">
+<link rel="manifest" href="{{ '/site.webmanifest' | url }}">
+<meta name="theme-color" content="#000000">

@@ -1,0 +1,31 @@
+/*------------------------------------*\
+  #TYPOGRAPHY
+\*------------------------------------*/
+
+.tabular-nums {
+    font-variant-numeric: tabular-nums;
+}
+
+.measure {
+    @include responsive-selector(true, portrait) {
+        max-width: var(--measure);
+    }
+}
+
+.auto-line-breaks {
+    @include responsive-selector(true, portrait) {
+        br {
+            display: none; // –> this will break if html is minified
+        }
+    }
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.text-center	{
+    text-align: center;
+}
+
+

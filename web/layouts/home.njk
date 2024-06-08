@@ -1,0 +1,15 @@
+{% extends "./base.njk" %}
+
+{% block content %}
+    {# About #}
+    {# {% set about = home[0].about %}
+    {% include "components/about.njk" %} #}
+
+    {# Projects #}
+    {% set projectTeasers = home[0].projectSelection %}
+    {% include "components/project-teasers.njk" %}
+
+    {# Contact #}
+    {# {% set contact = home[0].contact %}
+    {% include "partials/contact.njk" %} #}
+{% endblock %}

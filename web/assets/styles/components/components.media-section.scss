@@ -1,0 +1,119 @@
+/*------------------------------------*\
+  #Content builder media section
+\*------------------------------------*/
+
+
+.media-section {
+    @include respond-to(md) {
+        flex-direction: row;
+        margin-left: calc(var(--cluster-gap) * 0.5 * -1);
+        margin-right: calc(var(--cluster-gap) * 0.5 * -1);
+        --figure-mt: 0;
+    }
+}
+
+.media-section__inner {
+    > * + * {
+        margin-top: var(--module-sm); // add default top spacing for mobile setup
+    }
+}
+
+.media-section--single {
+    > * + * {
+        margin-top: var(--module-sm); // add default top spacing for mobile setup
+    }
+}
+
+.media-section--double {
+    > * + * {
+        margin-top: var(--module-sm); // add default top spacing for mobile setup
+    }
+
+    @include respond-to(md) {
+        .media-section__inner {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            > * + *:not(:nth-child(n+3)) {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+.media-section--gallery {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    .media-section__figure {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .media-section__inner {
+        > * + * {
+            margin-top: 0;
+        }
+    }
+}
+
+.media-section__figure {
+    width: calc((100% + var(--cluster-gap)) * 0.9 - var(--cluster-gap)); // calc 9 out of 10 rows from page-grid
+
+    .media-block--full-bleed & {
+        width: 100%;
+    }
+
+    @include respond-to(md) {
+        margin-left: calc(var(--cluster-gap) * 0.5);
+        margin-right: calc(var(--cluster-gap) * 0.5);
+        width: calc(100% / var(--block-cols) - var(--cluster-gap) - 1px);
+        flex: 0 1 auto;
+
+        .media-block__2-items & {
+            --block-cols: 2;
+        }
+
+        .media-block__3-items & {
+            --block-cols: 3;
+        }
+
+        // left or right aligning a single item
+        .media-block--align-right &,
+        .media-block--align-left & {
+            --block-cols: 2;
+        }
+
+        .media-block--2-items.media-block--align-right &,
+        .media-block--2-items.media-block--align-left & {
+            --block-cols: 3;
+        }
+
+        // asynchron layout 3:7
+        .media-block--3\/7 & {
+            &:first-child {
+                --block-cols: 3.333333333; // 100/30
+            }
+
+            &:last-child {
+                --figure-mt: 6rem;
+                --block-cols: 1.428571429; // 100/70
+            }
+        }
+
+        // asynchron layout 7:3
+        .media-block--7\/3 & {
+            &:first-child {
+                --figure-mt: 6rem;
+                --block-cols: 1.428571429; // 100/70
+            }
+
+            &:last-child {
+                --block-cols: 3.333333333; // 100/30
+            }
+        }
+
+    }
+}

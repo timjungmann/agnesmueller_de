@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html itemscope="itemscope" itemtype="http://schema.org/WebPage" lang="{% if site.lang %}{{ site.lang }}{% else %}{{ lang }}{% endif %}">
+    <head>
+        {% set seo = home[0].seo %}
+
+        <meta charset="utf-8">
+        <title>{% if dataContent.title|length %}{{ dataContent.title }} • {% endif %}{{ seo.title }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="referrer" content="no-referrer-when-downgrade">
+
+        {# todo just for now #}
+        <meta name="robots" content="noindex, nofollow" />
+
+        {# {% block robots %}
+            <meta name="robots" content="{% if isDev %}noindex,nofollow{% else %}index,follow{% endif %}">
+        {% endblock %} #}
+
+        {# Preload Font #}
+        {# <link rel="preload" href="{% webpack 'fonts/ABCDiatypeRounded-Medium-Trial.woff' %}" as="font" type="font/woff" crossorigin>
+        <link rel="preload" href="{% webpack 'fonts/ABCDiatypeRoundedMono-Medium-Trial.woff2' %}" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{% webpack 'fonts/ABCDiatypeRounded-Medium-Trial.woff' %}" as="font" type="font/woff" crossorigin>
+        <link rel="preload" href="{% webpack 'fonts/ABCDiatypeRoundedMono-Medium-Trial.woff2' %}" as="font" type="font/woff2" crossorigin> #}
+
+        {# Meta tags #}
+        {% include "partials/meta.njk" %}
+
+        <link rel="stylesheet" href="{% webpack 'main.css' %}">
+    </head>
+
+    <body data-theme="{% block colorScheme %}dark{% endblock %}">
+        <main tabindex="-1" id="main" class="main">
+            <header>
+                <h1>Agnes Mueller</h1>
+            </header>
+
+            {% block content %}
+                {{ content | safe }}
+            {% endblock %}
+        </main>
+
+        <script async defer src="{% webpack 'main.js' %}"></script>
+    </body>
+</html>

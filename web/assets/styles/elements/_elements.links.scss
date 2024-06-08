@@ -1,0 +1,16 @@
+/*------------------------------------*\
+  #LINKS
+\*------------------------------------*/
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    @include hover() {
+        // color: var(--text-highlight);
+        span {
+            text-decoration: underline;
+            text-decoration-thickness: 10%;
+        }
+    }
+}

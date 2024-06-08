@@ -1,0 +1,47 @@
+<div class="project-teasers">
+    <ul class="project-teasers__list | js-teaser-list">
+        {# Project teasers #}
+        {% for projectTeaser in projectTeasers %}
+            <li class="project-teasers__item | js-teaser-item" id="{{ 'project-' + loop.index }}">
+                <a href="{{ projectTeaser.slug.current }}" class="project-teasers__teaser">
+                    {% if projectTeaser.teaser.image.asset.url|length > 0 or projectTeaser.teaser.video.asset.url|length > 0 %}
+                        <figure class="project-teasers__asset">
+                            <div class="media-box" style="--aspect-ratio: {{ projectTeaser.teaser.image.asset.metadata.dimensions.height / projectTeaser.teaser.image.asset.metadata.dimensions.width }}">
+                                {% if projectTeaser.teaser.image.asset.url|length > 0 %}
+                                    {% set sizes = '(min-width: 64em) 50vw, 100vw' %}
+                                    {% set widths = [800,1024,1440] %}
+
+                                    {% image
+                                        projectTeaser.teaser.image.asset.url,
+                                        projectTeaser.teaser.image.altText|default(''),
+                                        sizes,
+                                        widths,
+                                        'lazy',
+                                        projectTeaser.teaser.image.asset.originalFilename
+                                    %}
+
+                                {% elif projectTeaser.teaser.video.asset.url|length > 0  %}
+                                    {% set videoUrl = projectTeaser.teaser.video.asset.url %}
+                                    {% set videoFilename = projectTeaser.teaser.video.asset.originalFilename %}
+                                    {% set videoOutputPath = videoUrl | passThroughVideo(videoFilename) %}
+
+                                    <figure class="project-teasers__asset">
+                                        <div class="media-box media-box--teaser">
+                                            <video class="" autoplay muted loop playsinline preload="none">
+                                                <source src="{{ videoOutputPath }}">
+                                            </video>
+                                        </div>
+                                    </figure>
+                                {% endif %}
+                            </div>
+                        </figure>
+                    {% endif %}
+
+                    {# <h3 class="project-teasers__label">
+                        {{ projectTeaser.teaser.title.text | portableToHtml | safe }}
+                    </h3> #}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

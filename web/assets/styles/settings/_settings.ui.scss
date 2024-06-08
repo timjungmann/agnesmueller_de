@@ -1,0 +1,31 @@
+///*----------------------------------*\
+//  #UI
+//\*----------------------------------*/
+
+// Project-level settings and setup for custom properties dealing with the ui
+//
+// The $ui-props map will automatically be output as custom properties in the :root styles
+// -> ./elements/_elements.root.scss
+
+$ui-props: (
+    // default values
+    'default': (
+        'border-w': 1px,
+
+        'measure': 48ex,
+    ),
+
+    'high-density': (
+        'border-w': 1.5px,
+    ),
+
+    // breakpoint md values
+    'md': (
+        // specific overwrites here
+    ),
+
+    // breakpoint lg values
+    'lg': (
+        // specific overwrites here
+    ),
+);

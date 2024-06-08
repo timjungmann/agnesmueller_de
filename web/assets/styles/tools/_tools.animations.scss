@@ -1,0 +1,52 @@
+///*----------------------------------*\
+//  #ANIMATIONS
+//\*----------------------------------*/
+
+@keyframes spin-words-in {
+    0% {
+        transform: translateY(100%) scaleY(4);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes spin-words-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20%) scaleY(0);
+    }
+}
+
+@keyframes ex-ex-ex {
+    0%, 66% {
+        opacity: 0;
+    }
+    66.1%, 100% {
+        opacity: 1;
+    }
+}
+
+// * Implemented as transitions
+// @keyframes label-fade-up {
+//     0% {
+//     }
+//     100% {
+//         transform: translateY(-100%);
+//     }
+// }
+
+// @keyframes label-fade-down {
+//     0% {
+//         opacity: 1;
+//         transform: translateY(0) translateX(-50%);
+//     }
+//     100% {
+//         transform: translateY(50%) translateX(-50%);
+//         opacity: 0;
+//     }
+// }
