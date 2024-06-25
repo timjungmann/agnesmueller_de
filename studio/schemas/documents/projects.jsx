@@ -7,6 +7,7 @@ export default {
 		{ name: 'main', title: 'Main' },
 	],
     fields: [
+        // META
         {
             title: 'Project Title',
             name: 'title',
@@ -30,6 +31,12 @@ export default {
 			fieldset: 'meta',
         },
         {
+            title: 'Medium',
+            name: 'medium',
+            type: 'string',
+			fieldset: 'meta',
+        },
+        {
             title: 'Location',
             name: 'location',
             type: 'textField',
@@ -41,6 +48,8 @@ export default {
             type: 'text',
 			fieldset: 'meta',
         },
+
+        // MAIN
         {
             title: 'Description',
             name: 'desc',
@@ -48,16 +57,19 @@ export default {
 			fieldset: 'main',
         },
         {
-            title: 'Content Builder',
-            name: 'contentBuilder',
+            title: 'Media Assets',
+            name: 'mediaAssets',
             type: 'array',
-			fieldset: 'main',
             of: [
-                { type: 'textSection' },
-                { type: 'mediaSection' },
-                { type: 'videoSection' },
+                { type: 'mediaAsset' },
             ],
-            description: 'Create the page content',
+			fieldset: 'main',
+        },
+        {
+            title: 'Video Asset',
+            name: 'videoAsset',
+            type: 'videoAsset',
+			fieldset: 'main',
         },
         {
             title: "Related Projects",
@@ -74,18 +86,13 @@ export default {
                 },
             ],
         },
-        {
-            title: 'Teaser',
-            name: 'teaser',
-            type: 'projectTeaser',
-        },
 
-        // ↓ METADATA
+        // SEO
         {
-            title: 'SEO',
-            name: 'seo',
-            type: 'seo',
-        }
+            title: "Seo Description",
+            name: "seoDescription",
+            type: "string",
+        },
     ],
     preview: {
         select: {

@@ -87,10 +87,11 @@
 @import "objects/objects.media-box";
 
 // COMPONENTS
-@import "components/components.btn";
+// @import "components/components.btn";
 @import "components/components.main";
+@import "components/components.header-nav";
 @import "components/components.media-section";
-@import "components/components.project-teasers";
+@import "components/components.project-list";
 
 // SCOPES
 @import "scopes/scopes.prose";

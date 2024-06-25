@@ -27,17 +27,23 @@
         <link rel="stylesheet" href="{% webpack 'main.css' %}">
     </head>
 
-    <body data-theme="{% block colorScheme %}dark{% endblock %}">
-        <main tabindex="-1" id="main" class="main">
-            <header>
-                <h1>Agnes Mueller</h1>
-            </header>
+    <body class="{% block body_class %}{% endblock %}">
 
+        {# HEADER #}
+        <header class="main-header">
+            {% include "partials/header-nav.njk" %}
+        </header>
+
+        {# MAIN #}
+        <main tabindex="-1" id="main" class="main">
             {% block content %}
                 {{ content | safe }}
             {% endblock %}
         </main>
 
         <script async defer src="{% webpack 'main.js' %}"></script>
+
+        {# Plausible #}
+        <script defer data-domain="studio-rueda.com" src="https://plausible.io/js/script.js"></script>
     </body>
 </html>

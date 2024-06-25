@@ -30,18 +30,19 @@
 // 2. Subset Unicode range to decrease file size
 // https://markoskon.com/creating-font-subsets/
 
-@font-face {
-    font-family: 'Diatype Rounded Medium';
-    src: url('../fonts/ABCDiatypeRounded-Medium-Trial.woff2') format('woff2'),
-         url('../fonts/ABCDiatypeRounded-Medium-Trial.woff') format('woff');
-    font-weight: 400;
-    font-display: fallback; // [1]
-}
+// todo add fonts if necessary?
+// @font-face {
+//     font-family: 'Diatype Rounded Medium';
+//     src: url('../fonts/ABCDiatypeRounded-Medium-Trial.woff2') format('woff2'),
+//          url('../fonts/ABCDiatypeRounded-Medium-Trial.woff') format('woff');
+//     font-weight: 400;
+//     font-display: fallback; // [1]
+// }
 
-@font-face {
-    font-family: 'Diatype Rounded Medium Mono';
-    src: url('../fonts/ABCDiatypeRoundedMono-Medium-Trial.woff2') format('woff2'),
-         url('../fonts/ABCDiatypeRoundedMono-Medium-Trial.woff') format('woff');
-    font-weight: 400;
-    font-display: fallback; // [1]
-}
+// @font-face {
+//     font-family: 'Diatype Rounded Medium Mono';
+//     src: url('../fonts/ABCDiatypeRoundedMono-Medium-Trial.woff2') format('woff2'),
+//          url('../fonts/ABCDiatypeRoundedMono-Medium-Trial.woff') format('woff');
+//     font-weight: 400;
+//     font-display: fallback; // [1]
+// }

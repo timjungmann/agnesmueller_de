@@ -100,12 +100,7 @@ $text-styles: (
     // Default Font Family
     'default': (
         font-weight: 400,
-        font-family: "'Diatype Rounded Medium', system, -apple-system, '.SFNSText-Regular', 'San Francisco', 'Roboto', 'Segoe UI', 'Helvetica Neue', sans-serif;",
-    ),
-
-    'mono': (
-        font-weight: 400,
-        font-family: "'Diatype Rounded Medium Mono', system, -apple-system, '.SFNSText-Regular', 'San Francisco', 'Roboto', 'Segoe UI', 'Helvetica Neue', sans-serif;",
+        font-family: "sans-serif;",
     ),
 
     // [M - default text]
@@ -128,6 +123,6 @@ $text-styles: (
 
     // Reset for default family
     'default-family': (
-        font-family: "system, -apple-system, '.SFNSText-Regular', 'San Francisco', 'Roboto', 'Segoe UI', 'Helvetica Neue', sans-serif;",
+        font-family: "sans-serif;",
     ),
 );

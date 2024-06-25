@@ -16,7 +16,7 @@ export default {
                 type: 'reference',
                 to: [{ type: 'projects' }],
             }],
-            description: 'Select and order projects teasers',
+            description: 'Select and order projects',
             preview: {
                 select: {
                     title: 'projectRef.label',
@@ -32,9 +32,9 @@ export default {
 
         // ↓ METADATA
         {
-            title: 'SEO',
-            name: 'seo',
-            type: 'seo',
+            title: "Seo Description",
+            name: "seoDescription",
+            type: "string",
         },
     ],
     preview: {
