@@ -18,7 +18,7 @@
     position: relative; // [1]
     overflow: hidden; // [2]
     // @include aspect-ratio($ratio-3\/2);
-    @include aspect-ratio(calc(var(--aspect-ratio) * 100%));
+    @include aspect-ratio(calc(var(--aspect-ratio, 0.75) * 100%));
 
     img,
     video {

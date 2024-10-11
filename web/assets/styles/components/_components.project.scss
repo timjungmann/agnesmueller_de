@@ -1,0 +1,64 @@
+/*------------------------------------*\
+  #PROJECT
+\*------------------------------------*/
+
+.project {
+}
+
+.project__headline {
+    cursor: pointer;
+    line-height: 1.1;
+
+    span {
+        font-size: 3rem;
+    }
+
+    &:hover {
+        span {
+            text-decoration: none !important;
+        }
+    }
+}
+
+.project__body {
+    display: none;
+    padding-bottom: var(--size-400);
+    margin-top: var(--size-50);
+
+    .is-active & {
+        display: block;
+    }
+}
+
+.project__content {
+    margin-top: var(--size-400);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--size-1200);
+    padding-left: var(--size-800);
+}
+
+.project__images-container {
+    display: grid;
+    grid-template-columns: auto 4ch;
+    height: 60svh;
+}
+
+.project__text {
+
+}
+
+.project__related-list {
+    --flow-space: 0;
+    a {
+        &:after {
+            content: ", ";
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        &:last-child:after {
+            content: "";
+        }
+    }
+}

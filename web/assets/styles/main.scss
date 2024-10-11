@@ -79,19 +79,30 @@
 @import "elements/elements.page";
 @import "elements/elements.typography";
 @import "elements/elements.links";
+@import "elements/elements.details";
 
 // OBJECTS
 @import "objects/objects.cluster";
 @import "objects/objects.flow";
-@import "objects/objects.container";
+// @import "objects/objects.container";
 @import "objects/objects.media-box";
+@import "objects/objects.text-field";
+
+// VENDOR
+@import "vendor/swiper";
 
 // COMPONENTS
 // @import "components/components.btn";
+@import "components/components.media-box";
 @import "components/components.main";
+@import "components/components.about";
 @import "components/components.header-nav";
-@import "components/components.media-section";
+@import "components/components.hero";
+// @import "components/components.media-section";
 @import "components/components.project-list";
+@import "components/components.project";
+@import "components/components.newsletter";
+@import "components/components.gallery";
 
 // SCOPES
 @import "scopes/scopes.prose";

@@ -39,13 +39,19 @@ export default {
         {
             title: 'Location',
             name: 'location',
-            type: 'textField',
+            type: 'string',
 			fieldset: 'meta',
         },
         {
             title: 'Material',
             name: 'material',
-            type: 'text',
+            type: 'string',
+			fieldset: 'meta',
+        },
+        {
+            title: 'Measurements',
+            name: 'measurements',
+            type: 'string',
 			fieldset: 'meta',
         },
 
@@ -57,8 +63,8 @@ export default {
 			fieldset: 'main',
         },
         {
-            title: 'Media Assets',
-            name: 'mediaAssets',
+            title: 'Images',
+            name: 'imageAssets',
             type: 'array',
             of: [
                 { type: 'mediaAsset' },
@@ -66,7 +72,7 @@ export default {
 			fieldset: 'main',
         },
         {
-            title: 'Video Asset',
+            title: 'Video',
             name: 'videoAsset',
             type: 'videoAsset',
 			fieldset: 'main',
@@ -85,13 +91,6 @@ export default {
                     description: 'Select related projects',
                 },
             ],
-        },
-
-        // SEO
-        {
-            title: "Seo Description",
-            name: "seoDescription",
-            type: "string",
         },
     ],
     preview: {

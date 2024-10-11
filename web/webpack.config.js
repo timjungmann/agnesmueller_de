@@ -22,6 +22,7 @@ module.exports = {
     devtool: isDev ? 'cheap-module-source-map' : 'source-map',
     entry: [
         path.resolve(__dirname, 'assets/scripts/index.js'),
+        path.resolve(__dirname, 'assets/scripts/carousel.js'),
         path.resolve(__dirname, 'assets/styles/main.scss')
     ],
     output: {

@@ -2,14 +2,15 @@
 
 {% block content %}
     {# About #}
-    {# {% set about = home[0].about %}
-    {% include "components/about.njk" %} #}
+    {% set about = about[0] %}
+    {% include "components/about.njk" %}
+
+    {# Hero #}
+    {% set heroImagesLeft = home[0].heroImgsLeft %}
+    {% set heroImagesRight = home[0].heroImgsRight %}
+    {% include "components/hero.njk" %}
 
     {# Projects #}
-    {% set projectTeasers = home[0].projectSelection %}
+    {% set projectsList = home[0].projectSelection %}
     {% include "components/project-list.njk" %}
-
-    {# Contact #}
-    {# {% set contact = home[0].contact %}
-    {% include "partials/contact.njk" %} #}
 {% endblock %}

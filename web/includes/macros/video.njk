@@ -1,0 +1,55 @@
+{# Macro for autoplay video
+
+Add a video placeholder to be turned into a HTML video player
+We do this to overcome autoplay issues mostly in Safari
+
+<div class='js-video-loader'
+   data-autoplay='1'
+   data-muted='1'
+   data-src='[{"media":"screen and (min-width: 1920px)","src":"https:\/\/cdn.abcdinamo.com\/media\/_1920xauto-q60\/Dinamo_Brains_34sec_Loop_03-web_3_2021-10-27-095526.mp4"},{"media":"screen and (min-width: 1280px)","src":"https:\/\/cdn.abcdinamo.com\/media\/_1440xauto-q60\/Dinamo_Brains_34sec_Loop_03-web_3_2021-10-27-095526.mp4"},{"media":"screen and (min-width: 1000px)","src":"https:\/\/cdn.abcdinamo.com\/media\/_960xauto-q60\/Dinamo_Brains_34sec_Loop_03-web_3_2021-10-27-095526.mp4"},{"media":"screen and (min-width: 600px)","src":"https:\/\/cdn.abcdinamo.com\/media\/_960xauto-q60\/Dinamo_Brains_34sec_Loop_03-web_3_2021-10-27-095526.mp4"},{"media":"screen and (max-width: 599px)","src":"https:\/\/cdn.abcdinamo.com\/media\/_640xauto-q60\/Dinamo_Brains_34sec_Loop_03-web_3_2021-10-27-095526.mp4"}]'
+   data-poster='[{"width":1024,"src":"https:\/\/cdn.abcdinamo.com\/media\/_1024xauto-q90\/ABCDinamo-TeamMember-2.jpg"},{"width":800,"src":"https:\/\/cdn.abcdinamo.com\/media\/_800xauto-q90\/ABCDinamo-TeamMember-2.jpg"},{"width":640,"src":"https:\/\/cdn.abcdinamo.com\/media\/_640xauto-q90\/ABCDinamo-TeamMember-2.jpg"},{"width":480,"src":"https:\/\/cdn.abcdinamo.com\/media\/_480xauto-q90\/ABCDinamo-TeamMember-2.jpg"},{"width":320,"src":"https:\/\/cdn.abcdinamo.com\/media\/_320xauto-q90\/ABCDinamo-TeamMember-2.jpg"}]'
+   >Video is loading ...</div>
+
+Will turn into
+
+<div class="video is-autoplay is-muted">
+    <video class="video__player"
+            data-autoplay="true"
+            muted=""
+            loop=""
+            src="https://dl.dropboxusercontent.com/s/wcy2kjvjg4ez3vv/2021_OneOfAKind_MiniLoop_HD_H264.mp4?dl=0"
+            playsinline=""
+            disableremoteplayback=""
+            data-poster="false"
+            data-initialized="true"></video>
+</div>
+
+
+
+Pass over sources and posters like so like so:
+
+{% set videoSources = [
+  {"media": "screen and (min-width: 1000px)", "src": "path-to-video-source-1000p.mp4"},
+  {"media": "screen and (max-width: 999px)", "src": "path-to-video-source-599p.mp4"}
+] %}
+
+{% set posterImages = [
+  {"width": 1024, "src": "path-to-poster-image-1024p.jpg"},
+  {"width": 640, "src": "path-to-poster-image-640p.jpg"},
+  {"width": 320, "src": "path-to-poster-image-320p.jpg"}
+] %}
+
+{{ video(videoSources, posterImages) }}
+
+#}
+
+{% macro video(sources, vimeoId, poster = []) %}
+    <div class='js-video-loader'
+         data-autoplay='1'
+         data-muted='1'
+         data-src='{{ sources| json | safe }}'
+         {% if vimeoId %}data-vimeo='{{ vimeoId }}'{% endif %}
+         {% if poster|length %}data-poster='{{ poster | json | safe }}{% endif %}'>
+        {# Video is loading ...  #}
+    </div>
+{% endmacro %}

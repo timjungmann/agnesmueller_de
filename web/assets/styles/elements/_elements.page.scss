@@ -9,6 +9,7 @@
 html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: .6rem;
 
     // Accessible font size scaling
     // for all rem units
@@ -23,9 +24,9 @@ html {
     // 1. em or rem does not matter here
     // 2. em-size should not go much below 1em to keep browser default in sync
     // 3. Increase or decrease zoom factor to define zoom distinction
-    --baseFontSize: 0.65rem; // [1][2]
+    --baseFontSize: 0.75rem; // [1][2]
     --fontSizeZoomFactor: 2.4vw; // [3]
-    --maxFontSize: 3.8rem;
+    --maxFontSize: 1rem;
     font-size: min(var(--baseFontSize) + var(--fontSizeZoomFactor), var(--maxFontSize));
 
     // Fix for safari bug: Permanent font size scaling fails
@@ -48,4 +49,8 @@ body {
     overflow-x: hidden;
     @include text-style('default');
     @include text-style('400');
+
+    &.has-modal {
+        overflow: hidden;
+    }
 }

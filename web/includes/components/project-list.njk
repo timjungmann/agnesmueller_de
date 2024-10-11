@@ -1,4 +1,69 @@
-<ul class="project-list">
+<div class="project-list">
     {# Projects #}
-    <p>Projects will go here</p>
-</ul>
+    {% for project in projectsList %}
+        <div class="project" id="{{ project.slug.current }}">
+            <a href="#{{ project.slug.current }}" class="project__headline | js-project">
+                <p>
+                    <span>{{ project.title }}</span>, {{ project.year }}, {{ project.medium }}
+                </p>
+            </a>
+
+            <div class="project__body">
+                {# Materials and location #}
+                <p>
+                    {% if project.material | length %}{{ project.material }},{% endif %}
+                    {% if project.measurements | length %}{{ project.measurements }},{% endif %}
+                    {% if project.location | length %}{{ project.location }}
+                    {% endif %}
+                </p>
+                <div class="project__content">
+                    {# Images #}
+                    {% set sizes = '(min-width: 64em) 50vw' %}
+                    {% set widths = [800] %}
+                    <div class="gallery swiper | js-carousel" data-swiper-type="gallery">
+                        <div class="gallery__images swiper-wrapper">
+                            {% for image in project.imageAssets %}
+                                {% set assetRatio = image.asset.metadata.dimensions.height / image.asset.metadata.dimensions.width %}
+                                <div class="gallery__image swiper-slide">
+                                    <figure class="gallery__figure" style="--aspect-ratio: {{ assetRatio }}">
+                                        {% image image.asset.url,
+                                            image.altText,
+                                            sizes,
+                                            widths,
+                                            'lazy',
+                                            image.asset.originalFilename
+                                        %}
+                                    </figure>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <!-- swiper navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+
+                        <!-- Swiper pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+
+                    {# Text #}
+                    <div class="project__text | flow-400">
+                        <div class="text-field">
+                            {{ project.desc.text|portableToHtml|safe }}
+                        </div>
+
+                        <div class="project__related | text-field">
+                            <h3>You may also like:</h3>
+                            <div class="project__related-list">
+                                {% for related in project.relatedProjects %}
+                                    <a href="#{{ related.slug.current }}">
+                                        <span>{{ related.title }}</span></a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

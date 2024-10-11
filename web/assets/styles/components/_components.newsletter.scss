@@ -1,0 +1,40 @@
+/*------------------------------------*\
+  #NEWSLETTER
+\*------------------------------------*/
+
+.newsletter {
+    h3 {
+        font-weight: bold;
+    }
+}
+
+.newsletter__body {
+    margin-top: var(--size-50);
+}
+
+.newsletter__input {
+    display: flex;
+    align-items: center;
+    gap: var(--size-400);
+
+    input {
+        all: unset;
+        border: 1px solid var(--border-default);
+        padding: var(--size-100) var(--size-400);
+        border-radius: 10rem;
+        width: 28ch;
+
+        &::placeholder {
+            color: var(--text-default);
+        }
+    }
+}
+
+.newsletter__submit {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}

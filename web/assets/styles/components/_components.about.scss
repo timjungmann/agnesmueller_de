@@ -1,0 +1,49 @@
+/*------------------------------------*\
+  #ABOUT
+\*------------------------------------*/
+
+.about {
+    display: none;
+    position: fixed;
+    padding: 2.2rem 8ch var(--body-p) var(--body-p);
+    height: 100vh;
+    max-height: 100vh;
+    width: 100%;
+    background-color: var(--bg-pink);
+    backdrop-filter: blur(.4rem);
+    -webkit-backdrop-filter: blur(.4rem);
+    z-index: map-get($z-index, about);
+
+    grid-template-columns: 1fr;
+
+    .has-modal & {
+        display: grid;
+    }
+
+    @supports (height: 100svh) {
+        height: 100svh;
+        max-height: 100svh;
+    }
+
+    @include respond-to(lg) {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--size-400);
+    }
+}
+
+.about__close {
+    cursor: pointer;
+    position: absolute;
+    top: 2.2rem;
+    right: var(--body-p);
+}
+
+.about__statement {
+    max-width: var(--measure);
+
+    p:first-child:before {
+        display: inline-flex;
+        content: 'Agnes Müller\00a0';
+        opacity: 0;
+    }
+}

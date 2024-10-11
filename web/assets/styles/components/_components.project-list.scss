@@ -1,0 +1,7 @@
+.project-list {
+    padding: 0 var(--body-p) 0 15ch;
+
+    > * + * {
+        margin-top: var(--size-300);
+    }
+}

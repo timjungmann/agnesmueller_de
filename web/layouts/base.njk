@@ -27,7 +27,7 @@
         <link rel="stylesheet" href="{% webpack 'main.css' %}">
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
+    <body class="{% block body_class %}{% endblock %}" id="body">
 
         {# HEADER #}
         <header class="main-header">
@@ -45,5 +45,9 @@
 
         {# Plausible #}
         <script defer data-domain="studio-rueda.com" src="https://plausible.io/js/script.js"></script>
+
+        {# Mailchimp #}
+        <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+
     </body>
 </html>

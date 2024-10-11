@@ -1,0 +1,27 @@
+/*------------------------------------*\
+  #TEXT FIELD
+\*------------------------------------*/
+
+.text-field {
+    max-width: var(--measure);
+
+    > * + * {
+        --flow-space: var(--size-200);
+        margin-top: var(--flow-space);
+    }
+
+    a {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+
+    }
+
+    h3 {
+        font-weight: bold;
+        --flow-space: var(--size-600);
+
+        + p {
+            --flow-space: var(--size-50);
+        }
+    }
+}

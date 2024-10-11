@@ -1,0 +1,28 @@
+<div class="about | js-about-modal">
+    {# Close button #}
+    <div class="about__close | js-about-close">close</div>
+
+    {# Left column #}
+    <div class="about__left | flow-600">
+        {# Artist statement #}
+        <div class="about__statement | text-field">
+            {{ about.artistStatement.text|portableToHtml|safe }}
+        </div>
+
+        {# Newsletter #}
+        {% include "components/newsletter.njk" %}
+
+        {# Contact #}
+        <div class="about__contact | text-field">
+            {{ about.contact.text|portableToHtml|safe }}
+        </div>
+    </div>
+
+    {# Right column #}
+    <div class="about__right | flow-400">
+        {# News #}
+        <div class="about__news | text-field">
+            {{ about.news.text|portableToHtml|safe }}
+        </div>
+    </div>
+</div>
