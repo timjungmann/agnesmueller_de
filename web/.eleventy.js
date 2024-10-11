@@ -28,15 +28,15 @@ module.exports = (config) => {
     // config.addPlugin(ErrorOverlayPlugin);
 
     // Purge unused css classes
-    if (process.env.NODE_ENV === 'production') {
-        config.addPlugin(purgeCssPlugin, {
-            // Optional: Specify the location of your PurgeCSS config
-            config: './purgecss.config.js',
+    // if (process.env.NODE_ENV === 'production') {
+    //     config.addPlugin(purgeCssPlugin, {
+    //         // Optional: Specify the location of your PurgeCSS config
+    //         config: './purgecss.config.js',
 
-            // Optional: Set quiet: true to suppress terminal output
-            quiet: false,
-        });
-    }
+    //         // Optional: Set quiet: true to suppress terminal output
+    //         quiet: false,
+    //     });
+    // }
 
     // Filters
     Object.keys(filters).forEach((key) => {

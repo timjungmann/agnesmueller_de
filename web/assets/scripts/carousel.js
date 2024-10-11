@@ -11,8 +11,6 @@ import 'swiper/css/pagination';
 
 let swipers = [];
 
-console.log('CAROUSEL RUNNING');
-
 /**
  * Initialize Swipers
  */
