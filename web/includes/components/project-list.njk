@@ -10,11 +10,10 @@
 
             <div class="project__body">
                 {# Materials and location #}
-                <p>
-                    {% if project.material | length %}{{ project.material }},{% endif %}
-                    {% if project.measurements | length %}{{ project.measurements }},{% endif %}
-                    {% if project.location | length %}{{ project.location }}
-                    {% endif %}
+                <p class="project__subline">
+                    {% if project.material | length %}<span>{{ project.material }}</span>{% endif %}
+                    {% if project.measurements | length %}<span>{{ project.measurements }}</span>{% endif %}
+                    {% if project.location | length %}<span>{{ project.location }}</span>{% endif %}
                 </p>
                 <div class="project__content">
                     {# Images #}

@@ -20,6 +20,18 @@
     }
 }
 
+.project__subline {
+    display: flex;
+
+    span {
+        &:not(:first-child) {
+            &:before {
+                content: ", ";
+            }
+        }
+    }
+}
+
 .project__body {
     display: none;
     padding-bottom: var(--size-400);

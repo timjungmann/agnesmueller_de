@@ -4,7 +4,7 @@ export default {
     title: "Video Asset",
     name: "videoAsset",
     type: "object",
-    description: 'If a video is added, imagesd will not be shown',
+    description: 'If a video is added, images will not be shown',
     fields: [
         {
             title: 'Preview Video',

@@ -4,7 +4,7 @@
         {% set seo = home[0].seo %}
 
         <meta charset="utf-8">
-        <title>{% if dataContent.title|length %}{{ dataContent.title }} • {% endif %}{{ seo.title }}</title>
+        <title>{% if dataContent.title|length %}{{ dataContent.title }}{% else %}Agnes Müller{% endif %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="referrer" content="no-referrer-when-downgrade">
 

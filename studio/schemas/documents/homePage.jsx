@@ -8,6 +8,11 @@ export default {
 	],
     fields: [
         {
+            title: 'Title',
+            name: 'title',
+            type: 'string',
+        },
+        {
             title: 'Hero Images Left',
             name: 'heroImgsLeft',
             type: 'array',
@@ -54,7 +59,7 @@ export default {
     ],
     preview: {
         select: {
-            title: 'seo.title',
+            title: 'title',
         },
     },
 };
