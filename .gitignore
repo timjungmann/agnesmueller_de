@@ -10,7 +10,7 @@ node_modules
 /lerna-debug.log
 
 # Vendor files
-vendor
+# vendor
 
 # Custom config parts
 config/build/custom.js
