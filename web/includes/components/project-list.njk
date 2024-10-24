@@ -15,35 +15,44 @@
                     {% if project.measurements | length %}<span>{{ project.measurements }}</span>{% endif %}
                     {% if project.location | length %}<span>{{ project.location }}</span>{% endif %}
                 </p>
+
                 <div class="project__content">
-                    {# Images #}
-                    {% set sizes = '(min-width: 64em) 50vw' %}
-                    {% set widths = [800] %}
-                    <div class="gallery swiper | js-carousel" data-swiper-type="gallery">
-                        <div class="gallery__images swiper-wrapper">
-                            {% for image in project.imageAssets %}
-                                {% set assetRatio = image.asset.metadata.dimensions.height / image.asset.metadata.dimensions.width %}
-                                <div class="gallery__image swiper-slide">
-                                    <figure class="gallery__figure" style="--aspect-ratio: {{ assetRatio }}">
-                                        {% image image.asset.url,
-                                            image.altText,
-                                            sizes,
-                                            widths,
-                                            'lazy',
-                                            image.asset.originalFilename
-                                        %}
-                                    </figure>
-                                </div>
-                            {% endfor %}
+                    {# Video #}
+                    {% if project.videoAsset | length %}
+                        <div class="video-box__player video-player media-box | js-video-player" style="--aspect-ratio: {{ videoRatio }}">
+                            <iframe src="https://player.vimeo.com/video/{{ project.vimeoID|default('384255340') }}?dnt=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autoplay=0&amp;badge=0&amp;color=fff" frameborder="0"></iframe>
                         </div>
 
-                        <!-- swiper navigation buttons -->
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
+                    {# Images #}
+                    {% else %}
+                        {% set sizes = '(min-width: 64em) 50vw' %}
+                        {% set widths = [800] %}
+                        <div class="gallery swiper | js-carousel" data-swiper-type="gallery">
+                            <div class="gallery__images swiper-wrapper">
+                                {% for image in project.imageAssets %}
+                                    {% set assetRatio = image.asset.metadata.dimensions.height / image.asset.metadata.dimensions.width %}
+                                    <div class="gallery__image swiper-slide">
+                                        <figure class="gallery__figure" style="--aspect-ratio: {{ assetRatio }}">
+                                            {% image image.asset.url,
+                                                image.altText,
+                                                sizes,
+                                                widths,
+                                                'lazy',
+                                                image.asset.originalFilename
+                                            %}
+                                        </figure>
+                                    </div>
+                                {% endfor %}
+                            </div>
 
-                        <!-- Swiper pagination -->
-                        <div class="swiper-pagination"></div>
-                    </div>
+                            <!-- swiper navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+
+                            <!-- Swiper pagination -->
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    {% endif %}
 
                     {# Text #}
                     <div class="project__text | flow-400">

@@ -7,12 +7,6 @@ export default {
     description: 'If a video is added, images will not be shown',
     fields: [
         {
-            title: 'Preview Video',
-            name: 'previewVideo',
-            type: 'file',
-            description: 'Upload a video in 720p',
-        },
-        {
             title: 'Video Ratio',
             name: 'ratio',
             type: 'number',
