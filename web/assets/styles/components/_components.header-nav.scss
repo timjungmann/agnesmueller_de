@@ -1,5 +1,5 @@
 /*------------------------------------*\
-  #Header Logo and navigation
+#Header Logo and navigation
 \*------------------------------------*/
 
 
@@ -13,6 +13,10 @@
 
     .has-modal & {
         pointer-events: none;
+    }
+
+    @include respond-to('lg') {
+        padding: 2.2rem var(--body-p) var(--body-p);
     }
 }
 

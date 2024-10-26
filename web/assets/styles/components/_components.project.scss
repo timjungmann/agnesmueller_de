@@ -18,12 +18,12 @@
     backdrop-filter: blur(.4rem);
 
     .media-highlighted & {
-        opacity: .65;
+        opacity: .6;
         z-index: map-get($z-index, media-highlighted-overlay);
     }
 
     .text-highlighted & {
-        opacity: .4;
+        opacity: .3;
         z-index: map-get($z-index, text-highlighted-overlay);
     }
 }
@@ -86,7 +86,7 @@
     row-gap: var(--size-400);
     transition: grid-template-columns 0.25s ease; // Add transition for smooth animation
     position: relative;
-    max-width: 72rem;
+    max-width: 70rem;
 
     @include respond-to('lg') {
         padding-left: var(--size-800);
@@ -119,15 +119,19 @@
 
 .project__text {
     transition: .25s;
+    position: relative;
 
-    .media-highlighted & {
-        opacity: .6;
-    }
+    // .media-highlighted & {
+    //     opacity: .4;
+    // }
 
-    .text-highlighted & {
-        opacity: 1;
+    // .text-highlighted & {
+    //     opacity: 1;
+    // }
+}
 
-    }
+.project__related {
+    margin-top: var(--size-800);
 }
 
 .project__related-list {

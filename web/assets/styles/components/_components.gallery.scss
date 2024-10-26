@@ -56,7 +56,19 @@
         }
 
         .text-highlighted & {
-            opacity: .25;
+            opacity: .15;
+        }
+    }
+}
+
+.swiper-pagination {
+    @include respond-to('lg') {
+        .media-highlighted & {
+            opacity: 1;
+        }
+
+        .text-highlighted & {
+            opacity: .15;
         }
     }
 }

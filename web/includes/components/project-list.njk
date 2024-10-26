@@ -65,7 +65,7 @@
                     {% endif %}
 
                     {# Text #}
-                    <div class="project__text | flow-800 | js-project-text">
+                    <div class="project__text | js-project-text">
                         {% if project.desc.text | length %}
                             <div class="text-field | js-animate-text-field">
                                 {{ project.desc.text|portableToHtml|safe }}
