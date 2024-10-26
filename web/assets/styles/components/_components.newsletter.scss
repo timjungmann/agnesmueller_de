@@ -9,24 +9,33 @@
 }
 
 .newsletter__body {
-    margin-top: var(--size-50);
+    margin-top: var(--size-100);
+
+    @include respond-to('lg') {
+        margin-top: var(--size-50);
+    }
 }
 
 .newsletter__input {
     display: flex;
-    align-items: center;
-    gap: var(--size-400);
+    column-gap: var(--size-400);
+    flex-direction: column;
 
     input {
         all: unset;
         border: 1px solid var(--border-default);
         padding: var(--size-100) var(--size-400);
-        border-radius: 10rem;
         width: 28ch;
 
         &::placeholder {
             color: var(--text-default);
         }
+    }
+
+    @include respond-to('lg') {
+        align-items: center;
+        flex-direction: row;
+        column-gap: var(--size-400);
     }
 }
 

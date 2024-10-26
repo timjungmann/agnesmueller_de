@@ -6,6 +6,11 @@ export default {
     type: "image",
     fields: [
         {
+            title: 'Caption',
+            name: 'caption',
+            type: 'string'
+        },
+        {
             title: 'Alternative Text',
             name: 'altText',
             type: 'string'

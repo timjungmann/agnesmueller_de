@@ -19,10 +19,22 @@
     </div>
 
     {# Right column #}
-    <div class="about__right | flow-400">
+    <div class="about__right | flow-600">
         {# News #}
-        <div class="about__news | text-field">
-            {{ about.news.text|portableToHtml|safe }}
-        </div>
+        {% if about.news.text | length %}
+            <div class="about__news | text-field">
+                {{ about.news.text|portableToHtml|safe }}
+            </div>
+        {% endif %}
+
+        {# CV #}
+        {% if about.cv.text | length %}
+            <details class="about__cv | flow-50">
+                <summary>CV</summary>
+                <p>
+                    {{ about.cv.text|portableToHtml|safe }}
+                </p>
+            </details>
+        {% endif %}
     </div>
 </div>

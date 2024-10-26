@@ -25,6 +25,11 @@ export default {
             name: 'news',
             type: 'textField',
         },
+        {
+            title: 'CV',
+            name: 'cv',
+            type: 'textField',
+        },
     ],
     preview: {
         select: {

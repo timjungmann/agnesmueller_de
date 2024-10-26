@@ -9,7 +9,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2.25rem var(--body-p) var(--body-p);
+    padding: var(--body-p) var(--body-p);
 
     .has-modal & {
         pointer-events: none;
@@ -22,9 +22,11 @@
 }
 
 .header-nav__logo {
-    pointer-events: all;
-    position: fixed;
-    z-index: map-get($z-index, logo);
+    @include respond-to('lg') {
+        pointer-events: all;
+        position: fixed;
+        z-index: map-get($z-index, logo);
+    }
 }
 
 .header-nav__about {

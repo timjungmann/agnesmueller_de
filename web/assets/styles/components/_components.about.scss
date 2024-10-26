@@ -5,9 +5,11 @@
 .about {
     display: none;
     position: fixed;
-    padding: 2.2rem 8ch var(--body-p) var(--body-p);
+    overflow: auto;
+    padding: .8rem var(--body-p) 12rem;
     height: 100vh;
     max-height: 100vh;
+    margin-top: -4rem;
     width: 100%;
     background-color: var(--bg-pink);
     backdrop-filter: blur(.4rem);
@@ -28,13 +30,15 @@
     @include respond-to(lg) {
         grid-template-columns: 1fr 1fr;
         gap: var(--size-400);
+        margin-top: 0;
+        padding: 2.2rem 8ch var(--body-p) var(--body-p);
     }
 }
 
 .about__close {
     cursor: pointer;
     position: absolute;
-    top: 2.2rem;
+    top: .8rem;
     right: var(--body-p);
 }
 
@@ -45,5 +49,36 @@
         display: inline-flex;
         content: 'Agnes Müller\00a0';
         opacity: 0;
+    }
+}
+
+.about__cv {
+    summary {
+        cursor: pointer;
+        font-weight: bold;
+        display: flex;
+        column-gap: var(--size-200);
+
+        &:after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin-top: -0.25rem;
+            border-radius: 50%;
+        }
+    }
+
+    &[open] {
+        summary:after {
+            content: "-";
+        }
+    }
+}
+
+.about__right {
+    margin-top: var(--size-600);
+
+    @include respond-to('lg') {
+        margin-top: 0;
     }
 }

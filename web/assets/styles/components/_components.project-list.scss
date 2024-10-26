@@ -1,7 +1,17 @@
 .project-list {
-    padding: 0 var(--body-p) 0 15ch;
+    margin-top: 4rem;
+    padding: 0 var(--body-p);
 
     > * + * {
-        margin-top: var(--size-300);
+        margin-top: var(--size-800);
+    }
+
+    @include respond-to('lg') {
+        margin-top: 0;
+        padding: 0 2rem 0 15ch;
+
+        > * + * {
+            margin-top: var(--size-400);
+        }
     }
 }

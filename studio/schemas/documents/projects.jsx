@@ -25,34 +25,46 @@ export default {
             }
         },
         {
+            title: 'Overlay Color',
+            name: 'overlayColor',
+            type: 'string',
+			fieldset: 'meta',
+        },
+        {
             title: 'Year',
             name: 'year',
             type: 'string',
-			fieldset: 'meta',
+			fieldset: 'main',
         },
         {
             title: 'Medium',
             name: 'medium',
             type: 'string',
-			fieldset: 'meta',
-        },
-        {
-            title: 'Location',
-            name: 'location',
-            type: 'string',
-			fieldset: 'meta',
+			fieldset: 'main',
         },
         {
             title: 'Material',
             name: 'material',
             type: 'string',
-			fieldset: 'meta',
+            fieldset: 'main',
         },
         {
             title: 'Measurements',
             name: 'measurements',
             type: 'string',
-			fieldset: 'meta',
+            fieldset: 'main',
+        },
+        {
+            title: 'Location',
+            name: 'location',
+            type: 'string',
+			fieldset: 'main',
+        },
+        {
+            title: 'Other',
+            name: 'other',
+            type: 'string',
+			fieldset: 'main',
         },
 
         // MAIN

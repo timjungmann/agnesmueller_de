@@ -1,25 +1,23 @@
 <div class="project-list">
     {# Projects #}
     {% for project in projectsList %}
-        <div class="project" id="{{ project.slug.current }}">
+        <div class="project" id="{{ project.slug.current }}" style="--overlay-color: {{ project.overlayColor | default('#ffc0cb') }}">
             <a href="#{{ project.slug.current }}" class="project__headline | js-project">
-                <p>
-                    <span>{{ project.title }}</span>, {{ project.year }}, {{ project.medium }}
-                </p>
+                {# !NEED TO STAY IN ONE LINE #}
+                <h3>{{ project.title }}</h3>{% if project.year | length %}<span>, {{ project.year }}</span>{% endif %}{% if project.medium | length %}<span>, {{ project.medium }}</span>{% endif %}{% if project.material | length %}<span class="project__additional">, {{ project.material }}</span>{% endif %}{% if project.measurements | length %}<span class="project__additional">, {{ project.measurements }}</span>{% endif %}{% if project.location | length %}<span class="project__additional">, {{ project.location }}</span>{% endif %}{% if project.other | length %}<span class="project__additional">, {{ project.other }}</span>{% endif %}
             </a>
 
             <div class="project__body">
                 {# Materials and location #}
                 <p class="project__subline">
-                    {% if project.material | length %}<span>{{ project.material }}</span>{% endif %}
-                    {% if project.measurements | length %}<span>{{ project.measurements }}</span>{% endif %}
-                    {% if project.location | length %}<span>{{ project.location }}</span>{% endif %}
+                    {# todo ??? #}
                 </p>
 
-                <div class="project__content">
+                <div class="project__content text-highlighted | js-project-content">
+                    <div class="project__overlay | js-project-overlay"></div>
                     {# Video #}
                     {% if project.videoAsset | length %}
-                        <div class="video-box__player video-player media-box | js-video-player" style="--aspect-ratio: {{ videoRatio }}">
+                        <div class="project__media media-box media-box--video | js-video-player">
                             <iframe src="https://player.vimeo.com/video/{{ project.vimeoID|default('384255340') }}?dnt=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autoplay=0&amp;badge=0&amp;color=fff" frameborder="0"></iframe>
                         </div>
 
@@ -27,11 +25,13 @@
                     {% else %}
                         {% set sizes = '(min-width: 64em) 50vw' %}
                         {% set widths = [800] %}
-                        <div class="gallery swiper | js-carousel" data-swiper-type="gallery">
+                        <div class="project__media gallery swiper | js-carousel js-project-media" data-swiper-type="gallery">
                             <div class="gallery__images swiper-wrapper">
                                 {% for image in project.imageAssets %}
                                     {% set assetRatio = image.asset.metadata.dimensions.height / image.asset.metadata.dimensions.width %}
                                     <div class="gallery__image swiper-slide">
+                                        {# <div class="gallery__image-overlay"></div> #}
+
                                         <figure class="gallery__figure" style="--aspect-ratio: {{ assetRatio }}">
                                             {% image image.asset.url,
                                                 image.altText,
@@ -40,36 +40,51 @@
                                                 'lazy',
                                                 image.asset.originalFilename
                                             %}
+
+                                            {# Caption #}
+                                            {% if image.caption | length %}
+                                                <figcaption class="gallery__caption">
+                                                    {{ image.caption }}
+                                                </figcaption>
+                                            {% endif %}
                                         </figure>
                                     </div>
                                 {% endfor %}
                             </div>
 
-                            <!-- swiper navigation buttons -->
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
+                            {# Pagination and controls #}
+                            {% if project.imageAssets | length > 1 %}
+                                <!-- swiper navigation buttons -->
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
 
-                            <!-- Swiper pagination -->
-                            <div class="swiper-pagination"></div>
+                                <!-- Swiper pagination -->
+                                <div class="swiper-pagination"></div>
+                            {% endif %}
                         </div>
                     {% endif %}
 
                     {# Text #}
-                    <div class="project__text | flow-400">
-                        <div class="text-field">
-                            {{ project.desc.text|portableToHtml|safe }}
-                        </div>
-
-
-                        <div class="project__related | text-field">
-                            <h3>You may also like:</h3>
-                            <div class="project__related-list">
-                                {% for related in project.relatedProjects %}
-                                    <a href="#{{ related.slug.current }}">
-                                        <span>{{ related.title }}</span></a>
-                                {% endfor %}
+                    <div class="project__text | flow-800 | js-project-text">
+                        {% if project.desc.text | length %}
+                            <div class="text-field | js-animate-text-field">
+                                {{ project.desc.text|portableToHtml|safe }}
                             </div>
-                        </div>
+                        {% endif %}
+
+                        {# Related #}
+                        {% if project.relatedProjects | length %}
+                            <div class="project__related | text-field flow-200">
+                                <h3>You may also like:</h3>
+
+                                <div class="project__related-list">
+                                    {% for related in project.relatedProjects %}
+                                        <a href="#{{ related.slug.current }}" class="js-related-link" data-target-slug="{{ related.slug.current }}">
+                                            <span>{{ related.title }}</span></a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

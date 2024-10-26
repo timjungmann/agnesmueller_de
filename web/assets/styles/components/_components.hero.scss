@@ -4,8 +4,12 @@
 
 
 .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: none;
+
+    @include respond-to('lg') {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .hero__left,

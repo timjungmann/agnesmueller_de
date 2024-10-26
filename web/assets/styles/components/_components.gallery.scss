@@ -4,11 +4,13 @@
 
 
 .gallery {
-    --gallery-h: calc(var(--100vh)*0.7);
+    // --gallery-h: calc(var(--100vh)*0.7);
+    padding-bottom: 3rem; // make sure pagination is under images
 
     grid-column: 1 / span 1;
     width: 100%; // important for swiper caret-color
-    max-height: var(--gallery-h);
+    height: fit-content;
+    // max-height: var(--gallery-h);
 }
 
 .gallery--left {
@@ -35,6 +37,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    transition: .15s;
 
     picture {
         height: 100%;
@@ -44,6 +47,23 @@
         object-fit: contain;
         object-position: center top;
         width: 100%;
-        max-height: var(--gallery-h);
+        max-height: fit-content;
     }
+
+    @include respond-to('lg') {
+        .media-highlighted & {
+            opacity: 1;
+        }
+
+        .text-highlighted & {
+            opacity: .25;
+        }
+    }
+}
+
+.gallery__caption {
+    position: absolute;
+    bottom: calc((1.25rem + 1.8rem) * -1);
+    left: 0;
+    padding-right: 4rem;
 }
