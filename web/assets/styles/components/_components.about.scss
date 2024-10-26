@@ -6,7 +6,7 @@
     display: none;
     position: fixed;
     overflow: auto;
-    padding: .8rem var(--body-p) 12rem;
+    padding: var(--body-p) var(--body-p) 12rem;
     height: 100vh;
     max-height: 100vh;
     margin-top: -4rem;
@@ -31,14 +31,14 @@
         grid-template-columns: 1fr 1fr;
         gap: var(--size-400);
         margin-top: 0;
-        padding: 2.2rem 8ch var(--body-p) var(--body-p);
+        padding: var(--body-p) 8ch var(--body-p) var(--body-p);
     }
 }
 
 .about__close {
     cursor: pointer;
     position: absolute;
-    top: .8rem;
+    top: var(--body-p);
     right: var(--body-p);
 }
 
