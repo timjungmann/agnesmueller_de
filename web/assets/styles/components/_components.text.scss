@@ -1,29 +1,27 @@
 /*------------------------------------*\
-  #PROJECT
+  #TEXT
 \*------------------------------------*/
 
-.project {
+.text {
 
 }
 
 
-.project__headline {
+.text__headline {
     cursor: pointer;
     line-height: 1.1;
     white-space: wrap;
-    z-index: 100;
-    position: relative;
+
+    h3 {
+        font-size: 2.4rem;
+        display: inline;
+    }
 
     &:hover {
         span {
             text-decoration: none !important;
         }
     }
-
-    // .is-active & {
-    //     position: sticky;
-    //     top: 1.7rem;
-    // }
 
     @include respond-to('lg') {
         h3 {
@@ -32,57 +30,51 @@
     }
 }
 
-.project__title {
-    @include text-style('display');
-
-    font-size: 2.4rem;
-    display: inline;
-
-    @include respond-to('lg') {
-        font-size: 3rem;
-    }
-}
-
-.project__subtitle {
-    @include text-style('display');
-
-    font-size: 1.7rem;
-
-    @include respond-to('lg') {
-        font-size: 2rem;
-    }
-}
-
-.project__additional {
+.text__additional {
     display: none;
 
-    .project.is-active & {
+    .text.is-active & {
         display: inline;
     }
 }
 
-.project__subline {
+.text__subline {
 
 }
 
-.project__body {
+.text__body {
     display: none;
     padding-bottom: var(--size-1000);
-    margin-top: var(--size-50);
+    margin-top: var(--size-600);
 
     .is-active & {
         display: block;
     }
+
+    @include respond-to(lg) {
+        margin-top: var(--size-400);
+
+        .is-active & {
+            display: flex;
+        }
+
+        &:before {
+            content: attr(data-title);
+            font-size: 3rem;
+            opacity: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+    }
 }
 
-.project__images-container {
+.text__images-container {
     display: grid;
     grid-template-columns: auto 4ch;
     height: 60svh;
 }
 
-.project__content {
-    margin-top: var(--size-600);
+.text__content {
     position: relative;
     display: grid;
 
@@ -92,27 +84,23 @@
     }
 }
 
-.project__media {
+.text__media {
     @include respond-to('lg') {
-        position: relative;
         grid-column: 1 / span 6;
     }
 }
 
-.project__text {
-    margin-top: var(--size-800);
-
+.text__text {
     @include respond-to('lg') {
-        margin-top: 0;
         grid-column: span 4 / -1;
     }
 }
 
-.project__related {
+.text__related {
     margin-top: var(--size-800);
 }
 
-.project__related-list {
+.text__related-list {
     --flow-space: 0;
 
     a {

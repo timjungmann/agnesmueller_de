@@ -5,19 +5,11 @@
 
 .header-nav {
     z-index: map-get($z-index, header);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     padding: var(--body-p) var(--body-p);
-
-    .has-modal & {
-        pointer-events: none;
-    }
-
-    @include respond-to('lg') {
-        padding: 2.2rem var(--body-p) var(--body-p);
-    }
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header-nav__list {
@@ -28,17 +20,31 @@
 .header-nav__logo {
     @include respond-to('lg') {
         pointer-events: all;
-        position: fixed;
-        z-index: map-get($z-index, logo);
     }
 }
 
-.header-nav__about {
-    cursor: pointer;
+.header-nav__nav {
     position: absolute;
-    right: var(--body-p);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
-    .has-modal & {
-        display: none;
+.header-nav__nav-link {
+    &.is-active {
+        @include underline();
+    }
+
+    // &:first-child {
+        //     &:after {
+            //         content: '/';
+            //         padding-left: .5ch;
+            //     }
+            // }
+        }
+
+        .header-nav__about {
+    &.is-active {
+        @include underline();
     }
 }

@@ -31,7 +31,9 @@
 
         {# HEADER #}
         <header class="main-header">
-            {% include "partials/header-nav.njk" %}
+            {% block header %}
+                {{ content | safe }}
+            {% endblock %}
         </header>
 
         {# MAIN #}
@@ -44,10 +46,11 @@
         <script async defer src="{% webpack 'main.js' %}"></script>
 
         {# Plausible #}
-        <script defer data-domain="studio-rueda.com" src="https://plausible.io/js/script.js"></script>
+        {# todo implement? #}
+        {# <script defer data-domain="studio-rueda.com" src="https://plausible.io/js/script.js"></script> #}
 
         {# Mailchimp #}
-        <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-
+        {# todo implement? #}
+        {# <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script> #}
     </body>
 </html>

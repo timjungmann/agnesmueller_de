@@ -101,12 +101,17 @@ $text-styles: (
     // Default Font Family
     'default': (
         font-weight: 400,
-        font-family: "sans-serif;",
+        font-family: "'Inter Regular', sans-serif;",
+    ),
+
+    'display': (
+        font-weight: 400,
+        font-family: "'Inter Display Regular', 'Inter Regular', sans-serif;",
     ),
 
     // [M - default text]
     '400': (
-        line-height: 1.25,
+        line-height: 1.2,
         letter-spacing: 0.04em,
     ),
 

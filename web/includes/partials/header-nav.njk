@@ -1,14 +1,14 @@
 <nav class="header-nav">
-    <ul class="header-nav__list">
-        {# Logo / home #}
-        <li class="header-nav__logo" data-nav-item="home">
-            <a class="nav-home__link" href="/">
-                <h1>Agnes Müller</h1>
-            </a>
-        </li>
+    {# Logo / home #}
+    <a class="header-nav__logo" href="/" data-nav-item="home">
+        Agnes Müller
+    </a>
 
-        <li class="header-nav__about | js-about-trigger" data-nav-item="about">
-            About
-        </li>
-    </ul>
+    <div class="header-nav__nav">
+        <a class="header-nav__nav-link{% if activeState and activeState == 'works' %} is-active{% endif %}" href="/">Works</a> / <a class="header-nav__nav-link{% if activeState and activeState == 'words' %} is-active{% endif %}" href="/words">Words</a>
+    </div>
+
+    <a href="/about" class="header-nav__about{% if activeState and activeState == 'about' %} is-active{% endif %}" data-nav-item="about">
+        About
+    </a>
 </nav>

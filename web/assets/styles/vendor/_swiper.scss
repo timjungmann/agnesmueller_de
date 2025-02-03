@@ -8,15 +8,14 @@
 
 .swiper {
     --swiper-theme-color: var(--text-default);
-    --swiper-pagination-bottom: 0.3rem;
 
     .swiper-slide {
-        display: grid;
-        align-self: center;
+        // display: grid;
+        // align-self: center;
     }
 
     .swiper-pagination-fraction {
-        --swiper-pagination-bottom: 1.15rem;
+        --swiper-pagination-bottom: 0;
         width: auto;
         left: auto;
         right: 0;

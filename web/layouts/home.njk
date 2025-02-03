@@ -1,14 +1,15 @@
 {% extends "./base.njk" %}
 
-{% block content %}
-    {# About #}
-    {% set about = about[0] %}
-    {% include "components/about.njk" %}
+{% block header %}
+    {% set activeState = 'works' %}
+    {% include "partials/header-nav.njk" %}
+{% endblock %}
 
+{% block content %}
     {# Hero #}
-    {% set heroImagesLeft = home[0].heroImgsLeft %}
+    {# {% set heroImagesLeft = home[0].heroImgsLeft %}
     {% set heroImagesRight = home[0].heroImgsRight %}
-    {% include "components/hero.njk" %}
+    {% include "components/hero.njk" %} #}
 
     {# Projects #}
     {% set projectsList = home[0].projectSelection %}

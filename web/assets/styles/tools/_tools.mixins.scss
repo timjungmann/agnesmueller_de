@@ -561,4 +561,10 @@
     }
 }
 
-
+/* Active underline style */
+@mixin underline() {
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-underline-offset: var(--text-underline-offset);
+    text-decoration-thickness: var(--text-underline-thickness);
+}

@@ -11,8 +11,11 @@
     cursor: pointer;
     line-height: 1.1;
     white-space: wrap;
-    z-index: 100;
-    position: relative;
+
+    h3 {
+        font-size: 2.4rem;
+        display: inline;
+    }
 
     &:hover {
         span {
@@ -20,36 +23,10 @@
         }
     }
 
-    // .is-active & {
-    //     position: sticky;
-    //     top: 1.7rem;
-    // }
-
     @include respond-to('lg') {
         h3 {
             font-size: 3rem;
         }
-    }
-}
-
-.project__title {
-    @include text-style('display');
-
-    font-size: 2.4rem;
-    display: inline;
-
-    @include respond-to('lg') {
-        font-size: 3rem;
-    }
-}
-
-.project__subtitle {
-    @include text-style('display');
-
-    font-size: 1.7rem;
-
-    @include respond-to('lg') {
-        font-size: 2rem;
     }
 }
 
@@ -94,16 +71,12 @@
 
 .project__media {
     @include respond-to('lg') {
-        position: relative;
         grid-column: 1 / span 6;
     }
 }
 
 .project__text {
-    margin-top: var(--size-800);
-
     @include respond-to('lg') {
-        margin-top: 0;
         grid-column: span 4 / -1;
     }
 }

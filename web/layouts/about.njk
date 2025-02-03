@@ -1,0 +1,12 @@
+{% extends "./base.njk" %}
+
+{% block header %}
+    {% set activeState = 'about' %}
+    {% include "partials/header-nav.njk" %}
+{% endblock %}
+
+{% block content %}
+    {# About #}
+    {% set about = about[0] %}
+    {% include "components/about.njk" %}
+{% endblock %}

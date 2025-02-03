@@ -4,13 +4,8 @@
 
 
 .gallery {
-    // --gallery-h: calc(var(--100vh)*0.7);
-    padding-bottom: 3rem; // make sure pagination is under images
-
-    grid-column: 1 / span 1;
     width: 100%; // important for swiper caret-color
     height: fit-content;
-    // max-height: var(--gallery-h);
 }
 
 .gallery--left {
@@ -29,53 +24,43 @@
     display: grid;
     align-items: center;
     width: 100%;
-    padding-bottom: var(--gallery-pagination-h); // make room for .swiper-pagination
+}
+
+.gallery__image {
+
+}
+
+.swiper-slide {
+
 }
 
 .gallery__figure {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    transition: .15s;
-
-    picture {
-        height: 100%;
-    }
+    --_media-h: calc((100vw - 2 * var(--body-p)) * var(--gallery-ratio));
+    block-size: calc(var(--_media-h) + 1.75rem);
 
     img {
-        object-fit: contain;
-        object-position: center top;
-        width: 100%;
-        max-height: fit-content;
+        overflow: hidden;
+        block-size: var(--_media-h);
+        inline-size: calc(var(--_media-h) / var(--aspect-ratio));
     }
 
-    @include respond-to('lg') {
-        .media-highlighted & {
-            opacity: 1;
-        }
-
-        .text-highlighted & {
-            opacity: .15;
-        }
+    @include respond-to(lg) {
+        --_media-h: calc(49vw * var(--gallery-ratio));
     }
 }
 
 .swiper-pagination {
-    @include respond-to('lg') {
-        .media-highlighted & {
-            opacity: 1;
-        }
-
-        .text-highlighted & {
-            opacity: .15;
-        }
-    }
 }
 
 .gallery__caption {
     position: absolute;
-    bottom: calc((1.25rem + 1.8rem) * -1);
+    bottom: 0;
     left: 0;
     padding-right: 4rem;
+    opacity: 0;
+    transition: opacity .4s ease-in-out;
+
+    .swiper-slide-active & {
+        opacity: 1;
+    }
 }

@@ -25,8 +25,8 @@ export default {
             }
         },
         {
-            title: 'Overlay Color',
-            name: 'overlayColor',
+            title: 'Project Subtitle',
+            name: 'subtitle',
             type: 'string',
 			fieldset: 'meta',
         },

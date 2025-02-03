@@ -1,0 +1,12 @@
+{% extends "./base.njk" %}
+
+{% block header %}
+    {% set activeState = 'words' %}
+    {% include "partials/header-nav.njk" %}
+{% endblock %}
+
+{% block content %}
+    {# Projects #}
+    {% set textsList = words[0].textSelection %}
+    {% include "components/text-list.njk" %}
+{% endblock %}

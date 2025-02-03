@@ -3,53 +3,17 @@
 \*------------------------------------*/
 
 .about {
-    display: none;
-    position: fixed;
-    overflow: auto;
-    padding: var(--body-p) var(--body-p) 12rem;
-    height: 100vh;
-    max-height: 100vh;
-    margin-top: -4rem;
-    width: 100%;
-    background-color: var(--bg-pink);
-    backdrop-filter: blur(.4rem);
-    -webkit-backdrop-filter: blur(.4rem);
-    z-index: map-get($z-index, about);
-
-    grid-template-columns: 1fr;
-
-    .has-modal & {
-        display: grid;
-    }
-
-    @supports (height: 100svh) {
-        height: 100svh;
-        max-height: 100svh;
-    }
+    display: grid;
+    padding: var(--body-p);
 
     @include respond-to(lg) {
         grid-template-columns: 1fr 1fr;
         gap: var(--size-400);
-        margin-top: 0;
-        padding: var(--body-p) 8ch var(--body-p) var(--body-p);
     }
-}
-
-.about__close {
-    cursor: pointer;
-    position: absolute;
-    top: var(--body-p);
-    right: var(--body-p);
 }
 
 .about__statement {
     max-width: var(--measure);
-
-    p:first-child:before {
-        display: inline-flex;
-        content: 'Agnes Müller\00a0';
-        opacity: 0;
-    }
 }
 
 .about__cv {
@@ -65,6 +29,26 @@
             font-weight: normal;
             margin-top: -0.25rem;
             border-radius: 50%;
+        }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        @supports (content-visibility: auto) {
+            interpolate-size: allow-keywords;
+
+            &::details-content {
+                opacity: 0;
+                block-size: 0;
+                overflow-y: clip;
+                transition: content-visibility .4s allow-discrete,
+                            opacity .4s,
+                            block-size .4s;
+            }
+
+            &[open]::details-content {
+                opacity: 1;
+                block-size: fit-content;
+            }
         }
     }
 

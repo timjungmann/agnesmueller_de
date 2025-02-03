@@ -1,0 +1,20 @@
+<div class="text-list">
+    {# Texts #}
+    {% for text in textsList %}
+        <div class="text" id="{{ text.slug.current }}">
+            <a href="#{{ text.slug.current }}" class="text__headline | js-text">
+                {# !NEED TO STAY IN ONE LINE #}
+                <h3>{{ text.title }}</h3>{% if text.year | length %}<span>, {{ text.year }}</span>{% endif %}{% if text.subline | length %}<span>, {{ text.subline }}</span>{% endif %}
+            </a>
+
+            <div class="text__body" data-title="{{ text.title }}">
+                {# Text #}
+                {% if text.text.text | length %}
+                    <div class="text-field">
+                        {{ text.text.text|portableToHtml|safe }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>

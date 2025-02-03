@@ -20,7 +20,7 @@
     position: relative; // [1]
     overflow: hidden; // [2]
     --aspect-ratio: var(--ratio-landscape-min); // [3] // 0.75
-    @include aspect-ratio(); // [4]
+    // @include aspect-ratio(); // [4]
     background: var(--bg-media-box);
 
     img {
