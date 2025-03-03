@@ -1,0 +1,91 @@
+/*------------------------------------*\
+#Header Logo and navigation
+\*------------------------------------*/
+
+.header-main {
+    padding: var(--body-p);
+
+    &:not(.has-modal &) {
+        z-index: 2;
+    }
+
+    @include respond-to(lg) {
+        position: sticky;
+        top: 0;
+
+        &:before {
+            content: '';
+            z-index: 100;
+            pointer-events: none;
+            background: rgba(255, 255, 255, .001);
+            position: absolute;
+            inset-block-start: 0;
+            inset-inline-start: 0;
+            inset-inline-end: 0;
+            block-size: 4.8rem;
+            backdrop-filter: blur(4px);
+            mask-image: linear-gradient(to bottom, black 2.4rem, transparent 4.8rem);
+        }
+
+        &:after {
+            content: '';
+            z-index: 100;
+            pointer-events: none;
+            background: rgba(255, 255, 255, .001);
+            position: absolute;
+            inset-block-start: 0;
+            inset-inline-start: 0;
+            inset-inline-end: 0;
+            block-size: 4rem;
+            background-color: var(--bg-default);
+            opacity: .9;
+            mask-image: linear-gradient(to bottom, black 1.4rem, transparent 4rem);
+        }
+    }
+}
+
+.header-main__container {
+    // height: var(--header-h);
+    z-index: map-get($z-index, header);
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-main__list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-main__logo {
+    @include respond-to('lg') {
+        pointer-events: all;
+    }
+}
+
+.header-main__nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header-main__nav-link {
+    &.is-active {
+        @include underline();
+    }
+
+    // &:first-child {
+        //     &:after {
+            //         content: '/';
+            //         padding-left: .5ch;
+            //     }
+            // }
+        }
+
+        .header-main__about {
+    &.is-active {
+        @include underline();
+    }
+}

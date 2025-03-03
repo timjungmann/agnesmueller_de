@@ -1,0 +1,27 @@
+/*------------------------------------*\
+  #MODAL
+\*------------------------------------*/
+
+.modal {
+    visibility: hidden;
+    position: fixed;
+    inset: 0;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+
+    .has-modal & {
+        opacity: 1;
+        visibility: visible;
+        display: block;
+        z-index: map-get($z-index, modal);
+        background-color: rgba(255, 233, 239, .75);
+        backdrop-filter: blur(6px);
+        overflow-y: auto;
+    }
+}
+
+.modal__close {
+    position: fixed;
+    top: var(--body-p);
+    right: var(--body-p);
+}

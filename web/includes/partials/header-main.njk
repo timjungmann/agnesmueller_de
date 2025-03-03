@@ -1,0 +1,17 @@
+<nav class="header-main__container">
+    {# Logo / home #}
+    <a class="header-main__logo" href="/" data-nav-item="home">
+        Agnes Müller
+    </a>
+
+    <div class="header-main__nav">
+        <a class="header-main__nav-link{% if activeState and activeState == 'works' %} is-active{% endif %}" href="/">Works</a> / <a class="header-main__nav-link{% if activeState and activeState == 'words' %} is-active{% endif %}" href="/words">Words</a>
+    </div>
+
+    {# <a href="/about" class="header-main__about{% if activeState and activeState == 'about' %} is-active{% endif %}" data-nav-item="about">
+        About
+    </a> #}
+    <button class="header-main__about btn | js-about-toggle" data-nav-item="about">
+        About
+    </button>
+</nav>

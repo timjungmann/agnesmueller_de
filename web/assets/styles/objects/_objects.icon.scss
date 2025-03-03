@@ -1,0 +1,14 @@
+/*------------------------------------*\
+  #ICON
+\*------------------------------------*/
+
+.icon {
+    display: inline-block;
+    flex-shrink: 0;
+    block-size: .75em; // [1]
+    inline-size: .75em;
+    fill: none; // [4]
+    stroke: currentColor; // [4]
+    stroke-width: 2px;
+    vertical-align: -.125em;
+}
