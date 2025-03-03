@@ -1,14 +1,30 @@
 /*------------------------------------*\
-  #PROJECT
+#PROJECT
 \*------------------------------------*/
 
 .project {
+    @include respond-to('lg') {
+        scroll-margin-top: 3.1rem;
+    }
+}
 
+// NEWS
+
+.project__news {
+    h4 {
+        @include text-style('display');
+        @include text-style('500');
+    }
 }
 
 
+.project__news-media {
+
+}
+
 .project__headline {
     cursor: pointer;
+    display: inline-block;
     line-height: 1.1;
     white-space: wrap;
     z-index: 100;
@@ -19,37 +35,35 @@
             text-decoration: none !important;
         }
     }
-
-    // .is-active & {
-    //     position: sticky;
-    //     top: 1.7rem;
-    // }
-
-    @include respond-to('lg') {
-        h3 {
-            font-size: 3rem;
-        }
-    }
 }
 
 .project__title {
     @include text-style('display');
+    @include text-style('800');
 
-    font-size: 2.4rem;
     display: inline;
 
     @include respond-to('lg') {
-        font-size: 3rem;
+        @include text-style('850');
+    }
+}
+
+.project__title-shake {
+    &:hover,
+    .is-active & {
+        display: inline-block;
+        animation: title-shake .2s cubic-bezier(.1,.6,.4,1) infinite;
     }
 }
 
 .project__subtitle {
     @include text-style('display');
-
-    font-size: 1.7rem;
+    // font-size: 1.7rem;
+    @include text-style('600');
 
     @include respond-to('lg') {
-        font-size: 2rem;
+        // font-size: 2rem;
+        @include text-style('700');
     }
 }
 
@@ -66,12 +80,25 @@
 }
 
 .project__body {
-    display: none;
-    padding-bottom: var(--size-1000);
-    margin-top: var(--size-50);
+    opacity: 0;
+    overflow: hidden;
+    max-height: 0; // start collapsed
+    transition: opacity 0s ease-in-out, max-height 0s ease-in-out;
 
     .is-active & {
-        display: block;
+        transition: opacity .3s ease-in-out, max-height .2s ease-in-out;
+        margin-top: var(--size-50);
+        padding-bottom: var(--size-1000);
+        opacity: 1;
+        max-height: 60rem; // adjust if necessary
+
+    }
+
+    .project--news.is-active & {
+        margin-top: var(--size-600);
+    }
+
+    @include respond-to('lg') {
     }
 }
 
@@ -93,6 +120,16 @@
 }
 
 .project__media {
+    // transform: scaleY(0);
+    // transform-origin: top;
+    filter: blur(4px);
+    transition: filter .3s ease-in-out;
+
+    .is-active & {
+        // transform: scaleY(1);
+        filter: blur(0px);
+    }
+
     @include respond-to('lg') {
         position: relative;
         grid-column: 1 / span 6;
@@ -114,8 +151,11 @@
 
 .project__related-list {
     --flow-space: 0;
+    line-height: 1.4;
 
     a {
+        white-space: nowrap;
+
         &:after {
             content: ", ";
             text-decoration: none;

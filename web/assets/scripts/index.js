@@ -18,6 +18,21 @@ const body = document.getElementById('body');
 // ***
 
 
+// *** ABOUT
+
+const aboutToggle = document.querySelectorAll('.js-about-toggle');
+
+if (aboutToggle) {
+    aboutToggle.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('has-modal');
+        });
+    });
+}
+
+// ***
+
+
 // *** HERO
 
 const leftImages = document.querySelectorAll('.js-hero-left');
@@ -106,58 +121,6 @@ if (relatedLinks.length > 0) {
         });
     });
 }
-
-// ***
-
-
-// *** HIDE TEXT
-
-// if(!touchDevice) {
-//     const projectTexts = document.querySelectorAll('.js-project-text');
-//     const mediaElements = document.querySelectorAll('.js-project-media');
-//     const bodyElement = document.body;
-
-//     // Function to manage the active state
-//     const setActiveClass = (projectContent, newClass) => {
-//         // Remove both classes initially
-//         projectContent.classList.remove('text-highlighted', 'media-highlighted');
-//         bodyElement.classList.remove('has-project-overlay');
-
-//         // Add the appropriate class
-//         if (newClass === 'media-highlighted') {
-//             projectContent.classList.add('media-highlighted');
-//             bodyElement.classList.add('has-project-overlay');
-//         } else {
-//             // Default to text-highlighted if media-highlighted is not set
-//             projectContent.classList.add('text-highlighted');
-//         }
-//     };
-
-//     projectTexts.forEach((projectText) => {
-//         const projectContent = projectText.closest('.js-project-content');
-
-//         if (projectContent) {
-//             // Ensure 'text-highlighted' is set by default
-//             setActiveClass(projectContent, 'text-highlighted');
-//         }
-//     });
-
-//     mediaElements.forEach((mediaElement) => {
-//         const projectContent = mediaElement.closest('.js-project-content');
-
-//         if (projectContent) {
-//             mediaElement.addEventListener('mouseenter', () => {
-//                 // Set 'media-highlighted' when hovering over media
-//                 setActiveClass(projectContent, 'media-highlighted');
-//             });
-
-//             mediaElement.addEventListener('mouseleave', () => {
-//                 // Revert to 'text-highlighted' when leaving media
-//                 setActiveClass(projectContent, null);
-//             });
-//         }
-//     });
-// }
 
 // ***
 

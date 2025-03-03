@@ -44,3 +44,24 @@
     font-weight: 400;
     font-display: fallback; // [1]
 }
+
+@font-face {
+    font-family: 'Inter Medium';
+    src: url('../fonts/Inter-Medium.woff2') format('woff2');
+    font-weight: 400;
+    font-display: fallback; // [1]
+}
+
+@font-face {
+    font-family: 'Inter Display Medium';
+    src: url('../fonts/InterDisplay-Medium.woff2') format('woff2');
+    font-weight: 400;
+    font-display: fallback; // [1]
+}
+
+@font-face {
+    font-family: 'Inter Semi Bold';
+    src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+    font-weight: 400;
+    font-display: fallback; // [1]
+}

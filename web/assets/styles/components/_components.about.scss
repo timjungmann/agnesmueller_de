@@ -1,14 +1,14 @@
 /*------------------------------------*\
-  #ABOUT
+#ABOUT
 \*------------------------------------*/
 
 .about {
     display: grid;
-    padding: var(--body-p);
+    padding: var(--body-p) var(--body-p) 10rem;
 
     @include respond-to(lg) {
         grid-template-columns: 1fr 1fr;
-        gap: var(--size-400);
+        column-gap: var(--size-800);
     }
 }
 
@@ -17,46 +17,46 @@
 }
 
 .about__cv {
-    summary {
-        cursor: pointer;
-        font-weight: bold;
-        display: flex;
-        column-gap: var(--size-200);
+    // summary {
+    //     cursor: pointer;
+    //     font-weight: bold;
+    //     display: flex;
+    //     column-gap: var(--size-200);
 
-        &:after {
-            content: "+";
-            font-size: 1.2rem;
-            font-weight: normal;
-            margin-top: -0.25rem;
-            border-radius: 50%;
-        }
-    }
+    //     &:after {
+    //         content: "+";
+    //         font-size: 1.2rem;
+    //         font-weight: normal;
+    //         margin-top: -0.25rem;
+    //         border-radius: 50%;
+    //     }
+    // }
 
-    @media (prefers-reduced-motion: no-preference) {
-        @supports (content-visibility: auto) {
-            interpolate-size: allow-keywords;
+    // @media (prefers-reduced-motion: no-preference) {
+    //     @supports (content-visibility: auto) {
+    //         interpolate-size: allow-keywords;
 
-            &::details-content {
-                opacity: 0;
-                block-size: 0;
-                overflow-y: clip;
-                transition: content-visibility .4s allow-discrete,
-                            opacity .4s,
-                            block-size .4s;
-            }
+    //         &::details-content {
+    //             opacity: 0;
+    //             block-size: 0;
+    //             overflow-y: clip;
+    //             transition: content-visibility .4s allow-discrete,
+    //                         opacity .4s,
+    //                         block-size .4s;
+    //         }
 
-            &[open]::details-content {
-                opacity: 1;
-                block-size: fit-content;
-            }
-        }
-    }
+    //         &[open]::details-content {
+    //             opacity: 1;
+    //             block-size: fit-content;
+    //         }
+    //     }
+    // }
 
-    &[open] {
-        summary:after {
-            content: "-";
-        }
-    }
+    // &[open] {
+    //     summary:after {
+    //         content: "-";
+    //     }
+    // }
 }
 
 .about__right {

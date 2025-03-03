@@ -3,6 +3,7 @@ import homePage from './documents/homePage';
 import words from './documents/words';
 import projects from './documents/projects';
 import texts from './documents/texts';
+import news from './documents/news';
 import about from './documents/about';
 
 // Objects
@@ -16,6 +17,7 @@ export const schemaTypes = [
     words,
     projects,
     texts,
+    news,
     about,
 
     // Objects

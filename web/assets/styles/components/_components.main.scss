@@ -3,8 +3,15 @@
 \*------------------------------------*/
 
 .main {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
-    padding-bottom: 40rem;
+    z-index: map-get($z-index, main);
+    margin-top: calc(var(--header-h) * -1);
+    padding-top: 1.8rem;
+    padding-bottom: 30rem;
+    position: relative;
+    flex-grow: 1;
+
+    @include respond-to(lg) {
+        padding-bottom: 40rem;
+        padding-top: 3.6rem;
+    }
 }

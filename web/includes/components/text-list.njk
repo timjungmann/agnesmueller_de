@@ -2,9 +2,10 @@
     {# Texts #}
     {% for text in textsList %}
         <div class="text" id="{{ text.slug.current }}">
-            <a href="#{{ text.slug.current }}" class="text__headline | js-text">
+            <a href="#{{ text.slug.current }}" class="text__headline | flow-100 | js-text">
                 {# !NEED TO STAY IN ONE LINE #}
-                <h3>{{ text.title }}</h3>{% if text.year | length %}<span>, {{ text.year }}</span>{% endif %}{% if text.subline | length %}<span>, {{ text.subline }}</span>{% endif %}
+                <h3>{{ text.title }}</h3>
+                <p class="text__subline">{% if text.subline | length %}<span>{{ text.subline }}</span>{% endif %}{% if text.year | length %}<span>, {{ text.year }}</span>{% endif %}</p>
             </a>
 
             <div class="text__body" data-title="{{ text.title }}">

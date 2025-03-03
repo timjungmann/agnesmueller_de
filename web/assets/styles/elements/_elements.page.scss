@@ -50,6 +50,10 @@ body {
     @include text-style('default');
     @include text-style('400');
 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
     &.has-modal {
         overflow: hidden;
     }

@@ -2,7 +2,7 @@
 
 {% block header %}
     {% set activeState = 'works' %}
-    {% include "partials/header-nav.njk" %}
+    {% include "partials/header-main.njk" %}
 {% endblock %}
 
 {% block content %}
@@ -12,6 +12,7 @@
     {% include "components/hero.njk" %} #}
 
     {# Projects #}
+    {% set newsList = news %}
     {% set projectsList = home[0].projectSelection %}
     {% include "components/project-list.njk" %}
 {% endblock %}

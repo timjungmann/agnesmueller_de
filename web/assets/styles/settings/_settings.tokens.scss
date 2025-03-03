@@ -34,6 +34,7 @@ $size-scale: (
     '600': 1.563rem,
     '700': 1.953rem,
     '800': 2.4rem,
+    '850': 3rem,
     '900': 3.9rem,
     '1000': 5.6rem,
     '1100': 8rem,
@@ -104,9 +105,24 @@ $text-styles: (
         font-family: "'Inter Regular', sans-serif;",
     ),
 
+    'medium': (
+        font-weight: 400,
+        font-family: "'Inter Medium', 'Inter Regular', sans-serif;",
+    ),
+
+    'semi-bold': (
+        font-weight: 400,
+        font-family: "'Inter Semi Bold', 'Inter Regular', sans-serif;",
+    ),
+
     'display': (
         font-weight: 400,
         font-family: "'Inter Display Regular', 'Inter Regular', sans-serif;",
+    ),
+
+    'display-medium': (
+        font-weight: 400,
+        font-family: "'Inter Display Medium', 'Inter Regular', sans-serif;",
     ),
 
     // [M - default text]
@@ -123,8 +139,32 @@ $text-styles: (
 
     // [XL - Large texts]
     '600': (
+        line-height: 1.1,
+        letter-spacing: 0.02em,
+    ),
+
+    // [XL - Large texts]
+    '700': (
         line-height: 1.08,
         letter-spacing: 0.02em,
+    ),
+
+    // [XL - Large texts]
+    '800': (
+        line-height: 1.06,
+        letter-spacing: 0.01em,
+    ),
+
+    // [XL - Large texts]
+    '850': (
+        line-height: 1.06,
+        letter-spacing: 0.01em,
+    ),
+
+    // [XL - Large texts]
+    '900': (
+        line-height: 1.04,
+        letter-spacing: 0.0em,
     ),
 
     // Reset for default family

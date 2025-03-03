@@ -4,16 +4,24 @@
 
 .text {
 
+    @include respond-to(lg) {
+        scroll-margin-top: 3.1rem;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: var(--column-gap);
+    }
 }
 
 
 .text__headline {
     cursor: pointer;
+    display: inline-block;
     line-height: 1.1;
     white-space: wrap;
+    height: fit-content;
 
     h3 {
-        font-size: 2.4rem;
+        @include text-style('800');
         display: inline;
     }
 
@@ -24,94 +32,55 @@
     }
 
     @include respond-to('lg') {
-        h3 {
-            font-size: 3rem;
+        grid-column: 1 / span 4;
+        position: sticky;
+        top: 3.6rem;
+
+        .is-active & {
+            padding-bottom: var(--size-1000);
         }
-    }
-}
 
-.text__additional {
-    display: none;
-
-    .text.is-active & {
-        display: inline;
+        h3 {
+            @include text-style('850');
+        }
     }
 }
 
 .text__subline {
+    opacity: 0;
+    max-height: 0;       // Collapse the element so it takes up no space
+    overflow: hidden;
+    transition: opacity 0s ease-in-out, max-height 0s ease-in-out;
+    margin-top: 0;
 
+    .is-active & {
+        transition: opacity .3s ease-in-out, max-height .2s ease-in-out;
+        margin-top: var(--flow-space);
+        opacity: 1;
+        max-height: 3rem;    // Set to a value greater than or equal to the expected content height
+    }
 }
 
 .text__body {
-    display: none;
-    padding-bottom: var(--size-1000);
-    margin-top: var(--size-600);
+    opacity: 0;
+    overflow: hidden;
+    max-height: 0; // start collapsed
+    transition: opacity 0s ease-in-out, max-height 0s ease-in-out;
 
     .is-active & {
-        display: block;
+        transition: opacity .3s ease-in-out, max-height .2s ease-in-out;
+        margin-top: var(--size-600);
+        padding-bottom: var(--size-1000);
+        opacity: 1;
+        max-height: 80rem; // adjust if necessary
     }
 
     @include respond-to(lg) {
         margin-top: var(--size-400);
+        grid-column: 6 / span 6;
 
         .is-active & {
-            display: flex;
-        }
-
-        &:before {
-            content: attr(data-title);
-            font-size: 3rem;
-            opacity: 0;
-            pointer-events: none;
-            user-select: none;
-        }
-    }
-}
-
-.text__images-container {
-    display: grid;
-    grid-template-columns: auto 4ch;
-    height: 60svh;
-}
-
-.text__content {
-    position: relative;
-    display: grid;
-
-    @include respond-to('lg') {
-        grid-template-columns: repeat(12, 1fr);
-        column-gap: var(--body-p);
-    }
-}
-
-.text__media {
-    @include respond-to('lg') {
-        grid-column: 1 / span 6;
-    }
-}
-
-.text__text {
-    @include respond-to('lg') {
-        grid-column: span 4 / -1;
-    }
-}
-
-.text__related {
-    margin-top: var(--size-800);
-}
-
-.text__related-list {
-    --flow-space: 0;
-
-    a {
-        &:after {
-            content: ", ";
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        &:last-child:after {
-            content: "";
+            margin-top: 0;
         }
     }
 }

@@ -87,16 +87,18 @@
 // @import "objects/objects.container";
 @import "objects/objects.media-box";
 @import "objects/objects.text-field";
+@import "objects/objects.icon";
 
 // VENDOR
 @import "vendor/swiper";
 
 // COMPONENTS
-// @import "components/components.btn";
+@import "components/components.btn";
 @import "components/components.media-box";
 @import "components/components.main";
 @import "components/components.about";
-@import "components/components.header-nav";
+@import "components/components.header-main";
+@import "components/components.footer-main";
 @import "components/components.hero";
 // @import "components/components.media-section";
 @import "components/components.project-list";
@@ -105,6 +107,8 @@
 @import "components/components.text";
 @import "components/components.newsletter";
 @import "components/components.gallery";
+@import "components/components.modal";
+@import "components/components.listing";
 
 // SCOPES
 @import "scopes/scopes.prose";
