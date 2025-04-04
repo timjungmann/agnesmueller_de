@@ -3,6 +3,7 @@ export default {
     name: 'homePage',
     type: 'document',
     fieldsets: [
+		{ name: 'main', title: 'Main' },
 		{ name: 'hero', title: 'Hero' },
 		{ name: 'projects', title: 'Projects' },
 	],
@@ -11,6 +12,7 @@ export default {
             title: 'Title',
             name: 'title',
             type: 'string',
+			fieldset: 'main',
         },
         {
             title: 'Hero Images Left',
@@ -31,6 +33,22 @@ export default {
             ],
             description: 'Add images to be displayed on the right side of the hero section',
 			fieldset: 'hero',
+        },
+        {
+            title: 'News Selection',
+            name: 'newsSelection',
+            type: 'array',
+			fieldset: 'main',
+            of: [{
+                type: 'reference',
+                to: [{ type: 'news' }],
+            }],
+            description: 'Select and order news',
+            preview: {
+                select: {
+                    title: 'projectRef.label',
+                },
+            },
         },
         {
             title: 'Project Selection',
