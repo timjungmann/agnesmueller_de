@@ -3,12 +3,8 @@
 \*------------------------------------*/
 
 .text {
-
     @include respond-to(lg) {
         scroll-margin-top: 3.1rem;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        column-gap: var(--column-gap);
     }
 }
 
@@ -20,45 +16,26 @@
     white-space: wrap;
     height: fit-content;
 
-    h3 {
-        @include text-style('800');
-        display: inline;
-    }
-
     &:hover {
         span {
             text-decoration: none !important;
         }
     }
+}
+
+.text__title {
+    @include text-style('display');
+    @include text-style('800');
+
+    display: inline;
 
     @include respond-to('lg') {
-        grid-column: 1 / span 4;
-        position: sticky;
-        top: 3.6rem;
-
-        .is-active & {
-            padding-bottom: var(--size-1000);
-        }
-
-        h3 {
-            @include text-style('850');
-        }
+        @include text-style('850');
     }
 }
 
 .text__subline {
-    opacity: 0;
-    max-height: 0;       // Collapse the element so it takes up no space
-    overflow: hidden;
-    transition: opacity 0s ease-in-out, max-height 0s ease-in-out;
-    margin-top: 0;
 
-    .is-active & {
-        transition: opacity .3s ease-in-out, max-height .2s ease-in-out;
-        margin-top: var(--flow-space);
-        opacity: 1;
-        max-height: 3rem;    // Set to a value greater than or equal to the expected content height
-    }
 }
 
 .text__body {
@@ -66,8 +43,10 @@
     overflow: hidden;
     max-height: 0; // start collapsed
     transition: opacity 0s ease-in-out, max-height 0s ease-in-out;
+    --flow-space: 0;
 
     .is-active & {
+        --flow-space: var(--size-400);
         transition: opacity .3s ease-in-out, max-height .2s ease-in-out;
         margin-top: var(--size-600);
         padding-bottom: var(--size-1000);
@@ -76,11 +55,43 @@
     }
 
     @include respond-to(lg) {
-        margin-top: var(--size-400);
-        grid-column: 6 / span 6;
+        display: flex;
+        flex-direction: row;
 
         .is-active & {
-            margin-top: 0;
+            margin-top: var(--size-400);
+        }
+
+        &:before {
+            content: attr(data-title);
+            opacity: 0;
+            pointer-events: none;
+            user-select: none;
+            @include text-style('display');
+            @include text-style('850');
+        }
+    }
+}
+
+.text__related {
+    margin-top: var(--size-800);
+}
+
+.text__related-list {
+    --flow-space: 0;
+    line-height: 1.4;
+
+    a {
+        white-space: nowrap;
+
+        &:after {
+            content: ", ";
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        &:last-child:after {
+            content: "";
         }
     }
 }

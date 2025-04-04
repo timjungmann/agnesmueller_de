@@ -5,7 +5,11 @@ async function getTexts() {
     const filter = groq`*[_type == "words"]{
         ...,
         textSelection[]->{
-            ...
+            ...,
+            relatedProjects[]->{
+                title,
+                slug
+            }
         }
     }`;
 

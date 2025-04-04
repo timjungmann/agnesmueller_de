@@ -44,6 +44,21 @@ export default {
             type: 'textField',
 			fieldset: 'main',
         },
+        {
+            title: "Related Projects",
+            name: 'relatedProjects',
+            type: 'array',
+            fieldset: 'main',
+            of: [
+                {
+                    type: 'reference',
+                    to: [
+                        { type: 'projects' },
+                    ],
+                    description: 'Select related projects',
+                },
+            ],
+        },
     ],
     preview: {
         select: {
