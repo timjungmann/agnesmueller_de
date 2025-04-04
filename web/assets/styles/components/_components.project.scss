@@ -87,11 +87,9 @@
 
     .is-active & {
         transition: opacity .3s ease-in-out, max-height .2s ease-in-out;
-        margin-top: var(--size-50);
         padding-bottom: var(--size-1000);
         opacity: 1;
         max-height: 60rem; // adjust if necessary
-
     }
 
     .project--news.is-active & {
@@ -114,6 +112,7 @@
     display: grid;
 
     @include respond-to('lg') {
+        margin-top: var(--size-800);
         grid-template-columns: repeat(12, 1fr);
         column-gap: var(--body-p);
     }

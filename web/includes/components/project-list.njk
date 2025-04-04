@@ -28,16 +28,11 @@
         <div class="project" id="{{ project.slug.current }}">
             <a href="#{{ project.slug.current }}" class="project__headline | js-project">
                 {# !NEED TO STAY IN ONE LINE #}
-                <h3 class="project__title">{{ project.title }}</h3>{% if project.subtitle %}<span class="project__subtitle">, {{ project.subtitle }}</span>{% endif %}{% if project.year %}<span>, {{ project.year }}</span>{% endif %}{% if project.medium %}<span>, {{ project.medium }}</span>{% endif %}{% if project.material %}<span class="project__additional">, {{ project.material }}</span>{% endif %}{% if project.measurements %}<span class="project__additional">, {{ project.measurements }}</span>{% endif %}{% if project.location %}<span class="project__additional">, {{ project.location }}</span>{% endif %}{% if project.other %}<span class="project__additional">, {{ project.other }}</span>{% endif %}
+                <h3 class="project__title">{{ project.title }}</h3>{% if project.subtitle %}<span class="project__additional">, {{ project.subtitle }}</span>{% endif %}{% if project.year %}<span  class="project__additional">, {{ project.year }}</span>{% endif %}{% if project.medium %}<span  class="project__additional">, {{ project.medium }}</span>{% endif %}{% if project.material %}<span class="project__additional">, {{ project.material }}</span>{% endif %}{% if project.measurements %}<span class="project__additional">, {{ project.measurements }}</span>{% endif %}{% if project.location %}<span class="project__additional">, {{ project.location }}</span>{% endif %}{% if project.other %}<span class="project__additional">, {{ project.other }}</span>{% endif %}
             </a>
 
             <div class="project__body">
-                {# Materials and location #}
-                <p class="project__subline">
-                    {# todo ??? #}
-                </p>
-
-                <div class="project__content text-highlighted | js-project-content">
+                <div class="project__content | js-project-content">
                     {# Video #}
                     {% if project.videoAsset %}
                         <div class="project__media media-box media-box--video | js-video-player">
@@ -49,19 +44,28 @@
                         {% set sizes = '(min-width: 64em) 50vw' %}
                         {% set widths = [800] %}
 
-                        {# Collect ratios #}
-                        {% set landscapeRatios = [] %}
+                        {# Determine gallery ratio #}
+                        {% set minRatio = null %}
+                        {% set maxRatio = null %}
 
                         {% for image in project.imageAssets %}
-                            {% set ratio = image.asset.metadata.dimensions.height / image.asset.metadata.dimensions.width %}
-                            {% if ratio <= 1 %}
-                                {% set landscapeRatios = landscapeRatios.concat([ratio]) %}
+                            {% set heightWidthRatio = image.asset.metadata.dimensions.height / image.asset.metadata.dimensions.width %}
+                            {% if minRatio is null or heightWidthRatio < minRatio %}
+                                {% set minRatio = heightWidthRatio %}
+                            {% endif %}
+
+                            {% if maxRatio is null or heightWidthRatio > maxRatio %}
+                                {% set maxRatio = heightWidthRatio %}
                             {% endif %}
                         {% endfor %}
 
-                        {% set maxLandscapeRatio = landscapeRatios | sort | first %}
+                        {# Ensure the ratio doesn't go lower than 0.8 #}
+                        {% set finalRatio = minRatio %}
+                        {% if finalRatio > 0.8 %}
+                            {% set finalRatio = 0.8 %}
+                        {% endif %}
 
-                        <div class="project__media gallery swiper | js-carousel js-project-media" data-swiper-type="gallery" style="--gallery-ratio: {{ maxLandscapeRatio }}">
+                        <div class="project__media gallery swiper | js-carousel js-project-media" data-swiper-type="gallery" style="--gallery-ratio: {{ finalRatio }}">
 
                             <div class="swiper-wrapper">
                                 {% for image in project.imageAssets %}
