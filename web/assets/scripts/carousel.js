@@ -43,28 +43,7 @@ function getSwiperParams() {
 
         // loop: true,
         lazyPreloadPrevNext: 2,
-        // longSwipes: false,
-        // longSwipesMs: 200,
-        // cssMode: true,
 
-        // Duration of transition between slides (in ms)
-        // Default: 300
-        // speed: 150,
-
-        // Threshold value in px. If "touch distance" will be lower than this value then swiper will not move
-        // Default:5
-        // threshold: 5,
-
-        // spaceBetween: 50,
-        // resistance: false,
-        // effect: 'fade',
-        // fadeEffect: {
-        //     crossFade: true
-        // },
-        // keyboard: {
-        //     enabled: true,
-        //     onlyInViewport: false,
-        // },
         pagination: {
             el: '.swiper-pagination',
             type: "fraction",
