@@ -1,43 +1,26 @@
 <div class="project-list">
     {# News #}
-    <div class="project project--news" id="news">
-        <a href="#news" class="project__headline | js-project">
-            {# !NEED TO STAY IN ONE LINE #}
-            <h3 class="project__title"><span class="project__title-shake">NEWS</span></h3>
-        </a>
+    {% if newsList|length %}
+        <div class="project project--news" id="news">
+            <a href="#news" class="project__headline | js-project">
+                {# !NEED TO STAY IN ONE LINE #}
+                <h3 class="project__title"><span class="project__title-shake">NEWS</span></h3>
+            </a>
 
-        <div class="project__body | flow-800">
-            {% for news in newsList %}
-                <div class="project__news">
-                    <div class="project__news-body | flow-100">
-                        <h4>{{ news.title }}</h4>
-                        <div class="text-field">
-                            {{ news.text.text|portableToHtml|safe }}
+            <div class="project__body | flow-800">
+                {% for news in newsList %}
+                    <div class="project__news">
+                        <div class="project__news-body | flow-100">
+                            <h4>{{ news.title }}</h4>
+                            <div class="text-field">
+                                {{ news.text.text|portableToHtml|safe }}
+                            </div>
                         </div>
                     </div>
-
-                    {% if news.mediaAsset %}
-                        <div class="project__news-image">
-                            {% set sizes = '(min-width: 64em) 50vw' %}
-                            {% set widths = [800] %}
-
-                            {% set assetRatio = news.mediaAsset.asset.metadata.dimensions.height / news.mediaAsset.asset.metadata.dimensions.width %}
-
-                            <figure class="project__news-media | media-box" style="--aspect-ratio: {{ assetRatio }}">
-                                {% image news.mediaAsset.asset.url,
-                                    news.mediaAsset.altText,
-                                    sizes,
-                                    widths,
-                                    'lazy',
-                                    news.mediaAsset.asset.originalFilename
-                                %}
-                            </figure>
-                        </div>
-                    {% endif %}
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
+    {% endif %}
 
 
     {# Projects #}

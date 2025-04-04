@@ -28,12 +28,6 @@ export default {
             type: 'textField',
 			fieldset: 'main',
         },
-        {
-            title: 'Image',
-            name: 'mediaAsset',
-            type: 'mediaAsset',
-			fieldset: 'main',
-        },
     ],
     preview: {
         select: {

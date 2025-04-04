@@ -12,7 +12,7 @@
     {% include "components/hero.njk" %} #}
 
     {# Projects #}
-    {% set newsList = news %}
+    {% set newsList = home[0].newsSelection %}
     {% set projectsList = home[0].projectSelection %}
     {% include "components/project-list.njk" %}
 {% endblock %}

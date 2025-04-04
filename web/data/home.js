@@ -12,6 +12,9 @@ async function getProjects() {
             ...,
             asset->
         },
+        newsSelection[]->{
+            ...,
+        },
         projectSelection[]->{
             ...,
             imageAssets[]{
