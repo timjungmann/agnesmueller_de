@@ -13,7 +13,8 @@
     pointer-events: none;
 
     h2 {
-        @include text-style('medium');
+        @include text-style('500');
+        @include text-style('display-medium');
         cursor: pointer;
         pointer-events: all;
     }
@@ -46,8 +47,10 @@
 
 .listing__list {
     h3 {
-
-        @include text-style('medium');
+        @include text-style('400');
+        @include text-style('display-medium');
+        cursor: pointer;
+        pointer-events: all;
     }
 
     dl {

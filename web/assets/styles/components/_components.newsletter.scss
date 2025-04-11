@@ -3,17 +3,14 @@
 \*------------------------------------*/
 
 .newsletter {
-    h3 {
-        @include text-style('medium');
+    h2 {
+        @include text-style('500');
+        @include text-style('display-medium');
     }
 }
 
-.newsletter__body {
+.newsletter__form {
     margin-top: var(--size-100);
-
-    @include respond-to('lg') {
-        margin-top: var(--size-50);
-    }
 }
 
 .newsletter__input {
@@ -21,14 +18,20 @@
     column-gap: var(--size-400);
     flex-direction: column;
 
+    label {
+        display: none;
+    }
+
     input {
         all: unset;
         border: 1px solid var(--border-default);
-        padding: var(--size-100) var(--size-400);
+        border-radius: 1px;
+        padding: var(--size-100) var(--size-200);
         width: 28ch;
 
         &::placeholder {
             color: var(--text-default);
+            opacity: 0.4;
         }
     }
 
@@ -40,10 +43,24 @@
 }
 
 .newsletter__submit {
-    padding: 0;
-    border: none;
-    font: inherit;
-    color: inherit;
-    background-color: transparent;
-    cursor: pointer;
+    align-self: flex-start;
+}
+
+.newsletter__success {
+    display: none;
+
+    .was-successful & {
+		display: block;
+	}
+}
+
+.newsletter__response {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	padding: var(--size-200);
+
+    &:after {
+        content: ' '; // force min-height of box to limit content shifts on validation
+    }
 }

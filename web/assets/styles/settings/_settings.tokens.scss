@@ -126,6 +126,11 @@ $text-styles: (
     ),
 
     // [M - default text]
+    '300': (
+        line-height: 1.2,
+        letter-spacing: 0.04em,
+    ),
+
     '400': (
         line-height: 1.2,
         letter-spacing: 0.04em,

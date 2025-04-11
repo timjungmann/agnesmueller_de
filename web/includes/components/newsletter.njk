@@ -1,29 +1,45 @@
 <div class="newsletter | mc_embed_signup">
-    <h3>Newsletter</h3>
+    <h2>Newsletter</h2>
 
-    <form class="newsletter__body | flow-400 | validate js-newsletter-form"
-        action="/"
-        method="post"
-        id="mc-embedded-subscribe-form"
-        name="mc-embedded-subscribe-form"
-        target="_blank"
-        novalidate
-    >
-        <div class="newsletter__input">
-            <input type="email" name="EMAIL" placeholder="E-mail Adresse" class="newsletter__email | required email | js-newsletter-email" id="mce-EMAIL" required>
+    {# action="https://humans.us14.list-manage.com/subscribe/post?u=6731ccc7c8d7ff394cdd31672&amp;id=063de2ae1f&amp;f_id=004e8ae0f0" #}
 
-            {# <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span> #}
+    <form method="post"
+		action="https://humans.us14.list-manage.com/subscribe/post?u=6731ccc7c8d7ff394cdd31672&amp;id=063de2ae1f&amp;f_id=004e8ae0f0"
+		id="mc-embedded-subscribe-form"
+		name="mc-embedded-subscribe-form"
+		class="newsletter__form validate | flow-100 | js-subscribe-form"
+		target="_self"
+	>
+		{# EMAIL #}
+		<div class="newsletter__input">
+			<label class="label" for="mce-EMAIL">Email Address</label>
+			<input type="email" name="EMAIL" class="newsletter__email input | required email" id="mce-EMAIL" value="" required  autocomplete="off" placeholder="Email address">
+		</div>
 
-            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6731ccc7c8d7ff394cdd31672_063de2ae1f" tabindex="-1" value=""></div>
+		{# FIRST NAME #}
+		<div class="newsletter__input">
+			<label class="label" for="mce-FIRSTNAME">First Name</label>
+			<input type="text" name="FIRSTNAME" class="newsletter__first-name input | required text" id="mce-FIRSTNAME" value="" required  autocomplete="off" placeholder="First name">
+		</div>
 
-            <div class="newsletter__submit-wrapper | js-form-item">
-                <button type="submit" name="submit" id="mc-embedded-subscribe"  class="newsletter__submit | js-submit-button">
-                    anmelden
-                </button>
-            </div>
-        </div>
-    </form>
+		{# LAST NAME #}
+		<div class="newsletter__input">
+			<label class="label" for="mce-LASTNAME">Last Name</label>
+			<input type="text" name="LASTNAME" class="newsletter__last-name input | required text" id="mce-LASTNAME" value="" required autocomplete="off" placeholder="Last name">
+		</div>
 
-    <div class="newsletter__message | js-newsletter-message"></div>
+		<div class="response | newsletter__response newsletter__response--error" id="mce-error-response" style="display: none;"></div>
+
+		{# real people should not fill this in and expect good things - do not remove this or risk form bot signups #}
+		<div aria-hidden="true" style="position: absolute; left: -5000px;">
+			<input type="text" name="b_6731ccc7c8d7ff394cdd31672_063de2ae1f" tabindex="-1" value="">
+		</div>
+
+		{# SUBMIT #}
+		<input type="submit" name="subscribe" id="mc-embedded-subscribe" class="newsletter__submit btn" value="Anmelden">
+	</form>
+
+    <p class="newsletter__success | prose flow-prose | js-newsletter-success">
+		Thank you for signing up to receive my newsletter. An email has been sent to the address provided. Please follow the instructions to confirm your subscription.
+    </p>
 </div>

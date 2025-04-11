@@ -3,7 +3,8 @@
 \*------------------------------------*/
 
 .header-main {
-    padding: var(--body-p);
+    padding-inline: var(--body-p);
+    background-color: white;
 
     &:not(.has-modal &) {
         z-index: 2;
@@ -13,43 +14,48 @@
         position: sticky;
         top: 0;
 
-        &:before {
-            content: '';
-            z-index: 100;
-            pointer-events: none;
-            background: rgba(255, 255, 255, .001);
-            position: absolute;
-            inset-block-start: 0;
-            inset-inline-start: 0;
-            inset-inline-end: 0;
-            block-size: 4.8rem;
-            backdrop-filter: blur(4px);
-            mask-image: linear-gradient(to bottom, black 2.4rem, transparent 4.8rem);
+        .body--works & {
+            padding-block-end: 0.2rem;
+
+            &:before {
+                content: '';
+                z-index: 100;
+                pointer-events: none;
+                background: rgba(255, 255, 255, .001);
+                position: absolute;
+                inset-block-start: 0;
+                inset-inline-start: 0;
+                inset-inline-end: 0;
+                block-size: 4.2rem;
+                backdrop-filter: blur(4px);
+                mask-image: linear-gradient(to bottom, black 2.4rem, transparent 4.2rem);
+            }
         }
 
-        &:after {
-            content: '';
-            z-index: 100;
-            pointer-events: none;
-            background: rgba(255, 255, 255, .001);
-            position: absolute;
-            inset-block-start: 0;
-            inset-inline-start: 0;
-            inset-inline-end: 0;
-            block-size: 4rem;
-            background-color: var(--bg-default);
-            opacity: .9;
-            mask-image: linear-gradient(to bottom, black 1.4rem, transparent 4rem);
-        }
+        // &:after {
+        //     content: '';
+        //     z-index: 100;
+        //     pointer-events: none;
+        //     background: rgba(255, 255, 255, .001);
+        //     position: absolute;
+        //     inset-block-start: 0;
+        //     inset-inline-start: 0;
+        //     inset-inline-end: 0;
+        //     block-size: 4.8rem;
+        //     opacity: 1;
+        //     background: linear-gradient(to bottom, white 2.4rem, transparent 4.8rem);
+        // }
     }
 }
 
 .header-main__container {
-    // height: var(--header-h);
+    height: var(--header-h);
     z-index: map-get($z-index, header);
     display: flex;
     position: relative;
     justify-content: space-between;
+    align-items: center;
+    display: flex;
     align-items: center;
 }
 

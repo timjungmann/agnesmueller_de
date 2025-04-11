@@ -20,8 +20,9 @@
 
                                 <div class="text__related-list">
                                     {% for related in text.relatedProjects %}
-                                        <a href="/#{{ related.slug.current }}" class="js-related-link" data-target-slug="{{ related.slug.current }}">
-                                            <span>{{ related.title }}</span></a>
+                                        <a href="/{% if related._type == 'texts' %}words{% endif %}#{{ related.slug.current }}" class="js-related-link" data-target-slug="{{ related.slug.current }}">
+                                            <span>{{ related.title }}</span>
+                                        </a>
                                     {% endfor %}
                                 </div>
                             </div>

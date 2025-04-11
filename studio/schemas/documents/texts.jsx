@@ -45,7 +45,7 @@ export default {
 			fieldset: 'main',
         },
         {
-            title: "Related Projects",
+            title: "Related Projects & Texts",
             name: 'relatedProjects',
             type: 'array',
             fieldset: 'main',
@@ -54,8 +54,9 @@ export default {
                     type: 'reference',
                     to: [
                         { type: 'projects' },
+                        { type: 'texts' },
                     ],
-                    description: 'Select related projects',
+                    description: 'Select related projects or texts',
                 },
             ],
         },

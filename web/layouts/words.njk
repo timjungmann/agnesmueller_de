@@ -1,5 +1,7 @@
 {% extends "./base.njk" %}
 
+{% block body_class %}body--words{% endblock %}
+
 {% block header %}
     {% set activeState = 'words' %}
     {% include "partials/header-main.njk" %}

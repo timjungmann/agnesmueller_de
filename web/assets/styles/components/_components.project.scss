@@ -87,16 +87,13 @@
 
     .is-active & {
         transition: opacity .3s ease-in-out, max-height .2s ease-in-out;
-        padding-bottom: var(--size-1000);
+        padding-bottom: var(--size-800);
         opacity: 1;
-        max-height: 60rem; // adjust if necessary
+        max-height: 100%; // adjust if necessary
     }
 
     .project--news.is-active & {
         margin-top: var(--size-600);
-    }
-
-    @include respond-to('lg') {
     }
 }
 

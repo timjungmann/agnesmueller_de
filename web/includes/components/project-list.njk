@@ -49,11 +49,15 @@
                         {% set maxRatio = null %}
 
                         {% for image in project.imageAssets %}
-                            {% set heightWidthRatio = image.asset.metadata.dimensions.height / image.asset.metadata.dimensions.width %}
+                            {% if image._type == 'mediaAsset' %}
+                                {% set heightWidthRatio = image.asset.metadata.dimensions.height / image.asset.metadata.dimensions.width %}
+                            {% elif image._type == 'file' %}
+                                {% set heightWidthRatio = 0.5625 %}
+                            {% endif %}
+
                             {% if minRatio is null or heightWidthRatio < minRatio %}
                                 {% set minRatio = heightWidthRatio %}
                             {% endif %}
-
                             {% if maxRatio is null or heightWidthRatio > maxRatio %}
                                 {% set maxRatio = heightWidthRatio %}
                             {% endif %}
@@ -71,24 +75,35 @@
                                 {% for image in project.imageAssets %}
                                     {% set assetRatio = image.asset.metadata.dimensions.height / image.asset.metadata.dimensions.width %}
 
-                                    <div class="swiper-slide">
-                                        <figure class="gallery__figure | media-box" style="--aspect-ratio: {{ assetRatio }}">
-                                            {% image image.asset.url,
-                                                image.altText,
-                                                sizes,
-                                                widths,
-                                                'lazy',
-                                                image.asset.originalFilename
-                                            %}
+                                    {# IMAGE #}
+                                    {% if image._type == 'mediaAsset' %}
+                                        <div class="swiper-slide">
+                                            <figure class="gallery__figure | media-box" style="--aspect-ratio: {{ assetRatio }}">
+                                                {% image image.asset.url,
+                                                    image.altText,
+                                                    sizes,
+                                                    widths,
+                                                    'lazy',
+                                                    image.asset.originalFilename
+                                                %}
 
-                                            {# Caption #}
-                                            {% if image.caption | length %}
-                                                <figcaption class="gallery__caption">
-                                                    {{ image.caption }}
-                                                </figcaption>
-                                            {% endif %}
-                                        </figure>
-                                    </div>
+                                                {# Caption #}
+                                                {% if image.caption | length %}
+                                                    <figcaption class="gallery__caption">
+                                                        {{ image.caption }}
+                                                    </figcaption>
+                                                {% endif %}
+                                            </figure>
+                                        </div>
+
+                                    {# VIDEO #}
+                                    {% elif image._type == 'file' %}
+                                        <div class="swiper-slide">
+                                            <video autoplay muted loop playsinline>
+                                                <source src="{{ image.asset.url }}" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    {% endif %}
                                 {% endfor %}
                             </div>
 
@@ -119,8 +134,9 @@
 
                                 <div class="project__related-list">
                                     {% for related in project.relatedProjects %}
-                                        <a href="#{{ related.slug.current }}" class="js-related-link" data-target-slug="{{ related.slug.current }}">
-                                            <span>{{ related.title }}</span></a>
+                                        <a href="/{% if related._type == 'texts' %}words{% endif %}#{{ related.slug.current }}" class="js-related-link" data-target-slug="{{ related.slug.current }}">
+                                            <span>{{ related.title }}</span>
+                                        </a>
                                     {% endfor %}
                                 </div>
                             </div>

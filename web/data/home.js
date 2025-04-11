@@ -26,6 +26,7 @@ async function getProjects() {
                 asset->
             },
             relatedProjects[]->{
+                _type,
                 title,
                 slug
             }

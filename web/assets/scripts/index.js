@@ -71,7 +71,9 @@ const projects = document.querySelectorAll('.js-project');
 
 if (projects.length > 0) {
     projects.forEach((project) => {
-        project.addEventListener('click', () => {
+        project.addEventListener('click', (event) => {
+            event.preventDefault();
+
             if (project.parentNode.classList.contains('is-active')) {
                 project.parentNode.classList.remove('is-active');
             } else project.parentNode.classList.add('is-active');

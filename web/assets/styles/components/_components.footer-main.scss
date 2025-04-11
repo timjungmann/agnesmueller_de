@@ -2,8 +2,14 @@
 #Footer
 \*------------------------------------*/
 
-.footer-main {
+.footer {
     padding: var(--body-p);
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    @include text-style('300');
+}
+
+.footer__social {
+    display: flex;
+    gap: var(--body-p);
 }

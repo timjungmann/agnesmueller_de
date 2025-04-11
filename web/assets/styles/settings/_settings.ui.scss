@@ -14,7 +14,7 @@ $ui-props: (
         'body-p': 1rem,
         'measure': 64ch,
 
-        'text-underline-offset': 0.4ex,
+        'text-underline-offset': 0.3ex,
         'text-underline-thickness': 0.06em,
 
         // common aspect ratios
@@ -27,7 +27,7 @@ $ui-props: (
         'ratio-landscape-max': 0.615, // 13:8 format // Match 2 default portrait ratios
         'ratio-wide': 0.56, // 16:9 format
 
-        'header-h': 2.8rem,
+        'header-h': 2.2rem,
     ),
 
     'high-density': (

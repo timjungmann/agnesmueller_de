@@ -4,6 +4,7 @@
 
 .text-field {
     max-width: var(--measure);
+    word-break: break-word;
 
     > * + * {
         --flow-space: var(--size-200);
@@ -11,17 +12,21 @@
     }
 
     a {
-        text-decoration: underline;
-        text-underline-offset: 4px;
+        @include underline();
+    }
 
+    p + p {
+        --flow-space: 0;
+		text-indent: 1em;
+    }
+
+    h3 + p {
+        --flow-space: 0;
     }
 
     h3 {
-        @include text-style('medium');
-        --flow-space: var(--size-600);
+        @include text-style('display-medium');
 
-        + p {
-            --flow-space: var(--size-50);
-        }
+        --flow-space: var(--size-600);
     }
 }

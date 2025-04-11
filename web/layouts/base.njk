@@ -27,7 +27,7 @@
         <link rel="stylesheet" href="{% webpack 'main.css' %}">
     </head>
 
-    <body class="{% block body_class %}{% endblock %}" id="body">
+    <body class="body {% block body_class %}{% endblock %}" id="body">
         {# HEADER #}
         <header class="header-main">
             {% block header %}
@@ -42,8 +42,12 @@
             {% endblock %}
         </main>
 
-        <footer class="footer-main">
-            {# todo #}
+        <footer class="footer">
+            <div class="footer__social">
+                <a href="#" target="_blank">Vimeo</a>
+                <a href="https://www.instagram.com/agnes_mueller_/" target="_blank">Instagram</a>
+            </div>
+
             <a href="#">Imprint</a>
         </footer>
 

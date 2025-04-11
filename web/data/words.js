@@ -7,6 +7,7 @@ async function getTexts() {
         textSelection[]->{
             ...,
             relatedProjects[]->{
+                _type,
                 title,
                 slug
             }
