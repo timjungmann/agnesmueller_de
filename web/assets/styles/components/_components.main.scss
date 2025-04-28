@@ -10,6 +10,12 @@
     position: relative;
     flex-grow: 1;
 
+    .body--imprint & {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
     @include respond-to(lg) {
         padding-bottom: 40rem;
         padding-top: 3.6rem;

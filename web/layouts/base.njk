@@ -44,11 +44,14 @@
 
         <footer class="footer">
             <div class="footer__social">
+                {# todo add link #}
                 <a href="#" target="_blank">Vimeo</a>
                 <a href="https://www.instagram.com/agnes_mueller_/" target="_blank">Instagram</a>
             </div>
 
-            <a href="#">Imprint</a>
+            {% block imprint_link %}
+                <a href="/imprint">Imprint</a>
+            {% endblock %}
         </footer>
 
         <script async defer src="{% webpack 'main.js' %}"></script>

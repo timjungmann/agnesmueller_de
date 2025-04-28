@@ -5,6 +5,7 @@ import projects from './documents/projects';
 import texts from './documents/texts';
 import news from './documents/news';
 import about from './documents/about';
+import imprint from './documents/imprint';
 
 // Objects
 import textField from './objects/textField';
@@ -19,6 +20,7 @@ export const schemaTypes = [
     texts,
     news,
     about,
+    imprint,
 
     // Objects
     textField,

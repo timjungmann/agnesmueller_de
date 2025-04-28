@@ -1,0 +1,19 @@
+{% extends "./base.njk" %}
+
+{% block body_class %}body--imprint{% endblock %}
+
+{% block header %}
+    {% include "partials/header-main.njk" %}
+{% endblock %}
+
+{% block content %}
+    {% set imprint = imprint[0] %}
+
+    <div class="imprint">
+        {{ imprint.body.text|portableToHtml|safe }}
+    </div>
+{% endblock %}
+
+{% block imprint_link %}
+    <a href="/">back</a>
+{% endblock %}

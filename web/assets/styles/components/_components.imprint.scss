@@ -1,0 +1,13 @@
+/*------------------------------------*\
+#IMPRINT
+\*------------------------------------*/
+
+.imprint {
+    padding: 0 var(--body-p);
+    @include text-style('700');
+    @include text-style('medium');
+
+    @include respond-to(lg) {
+        @include text-style('850');
+    }
+}
