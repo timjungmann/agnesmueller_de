@@ -10,22 +10,21 @@
 
 // NEWS
 
-.project__news {
-    h4 {
+.project__news-header {
+    h3 {
         @include text-style('display');
+        @include text-style('600');
+    }
+
+    p {
         @include text-style('500');
     }
-}
-
-
-.project__news-media {
-
 }
 
 .project__headline {
     cursor: pointer;
     display: inline-block;
-    line-height: 1.1;
+    line-height: 1.25;
     white-space: wrap;
     z-index: 100;
     position: relative;

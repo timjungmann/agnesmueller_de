@@ -25,6 +25,12 @@ export default {
             }
         },
         {
+            title: 'Author',
+            name: 'author',
+            type: 'string',
+			fieldset: 'main',
+        },
+        {
             title: 'Year',
             name: 'year',
             type: 'string',

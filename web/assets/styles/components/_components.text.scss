@@ -12,7 +12,7 @@
 .text__headline {
     cursor: pointer;
     display: inline-block;
-    line-height: 1.1;
+    line-height: 1.25;
     white-space: wrap;
     height: fit-content;
 
@@ -36,6 +36,15 @@
 
 .text__subline {
 
+}
+
+
+.text__additional {
+    display: none;
+
+    .text.is-active & {
+        display: inline;
+    }
 }
 
 .text__body {

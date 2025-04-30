@@ -11,3 +11,14 @@
         @include text-style('850');
     }
 }
+
+.imprint__logos {
+    display: flex;
+    column-gap: var(--size-400);
+
+    img {
+        height: 60px;
+        width: auto;
+        object-fit: contain;
+    }
+}

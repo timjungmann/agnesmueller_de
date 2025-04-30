@@ -10,7 +10,12 @@ export default {
             type: 'string',
         },
         {
-            title: 'Bpdy',
+            title: 'Credits',
+            name: 'credits',
+            type: 'textField',
+        },
+        {
+            title: 'Body',
             name: 'body',
             type: 'textField',
         },

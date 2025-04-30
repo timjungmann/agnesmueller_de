@@ -4,7 +4,7 @@
         <div class="text" id="{{ text.slug.current }}">
             <a href="#{{ text.slug.current }}" class="text__headline | flow-100 | js-text">
                 {# !NEED TO STAY IN ONE LINE #}
-                <h3 class="text__title">{{ text.title }}</h3>{% if text.year | length %}<span>, {{ text.year }}</span>{% endif %}{% if text.subline | length %}<span class="text__subline">, {{ text.subline }}</span>{% endif %}
+                <h3 class="text__title">{{ text.title }}</h3>{% if text.author | length %}<span>, {{ text.author }}</span>{% endif %}{% if text.subline | length %}<span class="text__additional"> {{ text.subline }}</span>{% endif %}{% if text.year | length %}<span class="text__additional">, {{ text.year }}</span>{% endif %}
             </a>
 
             <div class="text__body" data-title="{{ text.title }}">
@@ -16,13 +16,12 @@
                         {# Related #}
                         {% if text.relatedProjects | length %}
                             <div class="text__related | text-field flow-200">
-                                <h3>You may also like:</h3>
+                                <h3>Related projects:</h3>
 
                                 <div class="text__related-list">
                                     {% for related in text.relatedProjects %}
-                                        <a href="/{% if related._type == 'texts' %}words{% endif %}#{{ related.slug.current }}" class="js-related-link" data-target-slug="{{ related.slug.current }}">
-                                            <span>{{ related.title }}</span>
-                                        </a>
+                                        {# !NEED TO STAY IN ONE LINE #}
+                                        <a href="/{% if related._type == 'texts' %}words{% endif %}#{{ related.slug.current }}" class="js-related-link" data-target-slug="{{ related.slug.current }}"><span>{{ related.title }}</span></a>
                                     {% endfor %}
                                 </div>
                             </div>

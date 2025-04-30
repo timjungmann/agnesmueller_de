@@ -91,6 +91,7 @@ module.exports = (config) => {
     config.addPassthroughCopy('favicon.svg');
     config.addPassthroughCopy('site.webmanifest');
     config.addPassthroughCopy('assets/favicon');
+    config.addPassthroughCopy('assets/logos');
     config.addPassthroughCopy('assets/fonts');
     // config.addPassthroughCopy('assets/icons');
     config.addPassthroughCopy('assets/images');

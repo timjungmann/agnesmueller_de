@@ -9,8 +9,27 @@
 {% block content %}
     {% set imprint = imprint[0] %}
 
-    <div class="imprint">
-        {{ imprint.body.text|portableToHtml|safe }}
+    <div class="imprint | flow-800">
+        {% if imprint.credits | length %}
+            <div class="imprint__credits">
+                {{ imprint.credits.text|portableToHtml|safe }}
+            </div>
+        {% endif %}
+
+        {% if imprint.body | length %}
+            <div class="imprint__body">
+                {{ imprint.body.text|portableToHtml|safe }}
+            </div>
+        {% endif %}
+
+        <div class="imprint__sponsors | flow-200">
+            <h3>Supported by:</h3>
+
+            <div class="imprint__logos">
+                <img src="/assets/logos/logo-neustart.png" alt="Neustart Kultur Logo">
+                <img src="/assets/logos/logo-dkb.png" alt="Deutscher Künstlerbund Logo">
+            </div>
+        </div>
     </div>
 {% endblock %}
 

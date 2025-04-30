@@ -4,14 +4,20 @@
         <div class="project project--news" id="news">
             <a href="#news" class="project__headline | js-project">
                 {# !NEED TO STAY IN ONE LINE #}
-                <h3 class="project__title"><span class="project__title-shake">NEWS</span></h3>
+                <h2 class="project__title"><span class="project__title-shake">News</span></h2>
             </a>
 
             <div class="project__body | flow-800">
                 {% for news in newsList %}
-                    <div class="project__news">
+                    <div class="project__news | flow-400">
+                        <div class="project__news-header">
+                            <h3>{{ news.title }}</h3>
+                            {% if news.subline | length %}
+                                <p>{{ news.subline }}</p>
+                            {% endif %}
+                        </div>
+
                         <div class="project__news-body | flow-100">
-                            <h4>{{ news.title }}</h4>
                             <div class="text-field">
                                 {{ news.text.text|portableToHtml|safe }}
                             </div>
@@ -28,7 +34,7 @@
         <div class="project" id="{{ project.slug.current }}">
             <a href="#{{ project.slug.current }}" class="project__headline | js-project">
                 {# !NEED TO STAY IN ONE LINE #}
-                <h3 class="project__title">{{ project.title }}</h3>{% if project.subtitle %}<span class="project__additional">, {{ project.subtitle }}</span>{% endif %}{% if project.year %}<span  class="project__additional">, {{ project.year }}</span>{% endif %}{% if project.medium %}<span  class="project__additional">, {{ project.medium }}</span>{% endif %}{% if project.material %}<span class="project__additional">, {{ project.material }}</span>{% endif %}{% if project.measurements %}<span class="project__additional">, {{ project.measurements }}</span>{% endif %}{% if project.location %}<span class="project__additional">, {{ project.location }}</span>{% endif %}{% if project.other %}<span class="project__additional">, {{ project.other }}</span>{% endif %}
+                <h2 class="project__title">{{ project.title }}</h2>{% if project.subtitle %}<span class="project__additional">, {{ project.subtitle }}</span>{% endif %}{% if project.year %}<span  class="project__additional">, {{ project.year }}</span>{% endif %}{% if project.medium %}<span  class="project__additional">, {{ project.medium }}</span>{% endif %}{% if project.material %}<span class="project__additional">, {{ project.material }}</span>{% endif %}{% if project.measurements %}<span class="project__additional">, {{ project.measurements }}</span>{% endif %}{% if project.location %}<span class="project__additional">, {{ project.location }}</span>{% endif %}{% if project.other %}<span class="project__additional">, {{ project.other }}</span>{% endif %}
             </a>
 
             <div class="project__body">
@@ -130,7 +136,7 @@
                         {# Related #}
                         {% if project.relatedProjects | length %}
                             <div class="project__related | text-field flow-200">
-                                <h3>You may also like:</h3>
+                                <h3>Related projects:</h3>
 
                                 <div class="project__related-list">
                                     {% for related in project.relatedProjects %}
