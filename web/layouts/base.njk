@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="referrer" content="no-referrer-when-downgrade">
 
-        {# todo just for now #}
+        {# todo just for now, fix before launch #}
         <meta name="robots" content="noindex, nofollow" />
 
         {# {% block robots %}
@@ -16,11 +16,11 @@
         {% endblock %} #}
 
         {# Preload Font #}
-        {# todo preload fonts #}
-        {# <link rel="preload" href="{% webpack 'fonts/ABCDiatypeRounded-Medium-Trial.woff' %}" as="font" type="font/woff" crossorigin>
-        <link rel="preload" href="{% webpack 'fonts/ABCDiatypeRoundedMono-Medium-Trial.woff2' %}" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="{% webpack 'fonts/ABCDiatypeRounded-Medium-Trial.woff' %}" as="font" type="font/woff" crossorigin>
-        <link rel="preload" href="{% webpack 'fonts/ABCDiatypeRoundedMono-Medium-Trial.woff2' %}" as="font" type="font/woff2" crossorigin> #}
+        <link rel="preload" href="{% webpack 'fonts/Inter-Medium.woff2' %}" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{% webpack 'fonts/Inter-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{% webpack 'fonts/Inter-SemiBold.woff2' %}" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{% webpack 'fonts/InterDisplay-Medium.woff2' %}" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{% webpack 'fonts/InterDisplay-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
 
         {# Meta tags #}
         {% include "partials/meta.njk" %}
@@ -45,7 +45,6 @@
 
         <footer class="footer">
             <div class="footer__social">
-                {# todo add link #}
                 <a href="https://vimeo.com/user55838417" target="_blank">Vimeo</a>
                 <a href="https://www.instagram.com/agnes_mueller_/" target="_blank">Instagram</a>
             </div>
@@ -62,7 +61,7 @@
         {# <script defer data-domain="studio-rueda.com" src="https://plausible.io/js/script.js"></script> #}
 
         {# Mailchimp #}
-        {# todo implement? #}
+        {# todo need this? #}
         {# <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script> #}
     </body>
 </html>
