@@ -4,9 +4,10 @@
 
 .about {
     display: grid;
-    padding: var(--body-p) var(--body-p) 10rem;
+    padding: 2rem var(--body-p) 10rem;
 
     @include respond-to(lg) {
+        padding: var(--body-p) var(--body-p) 10rem;
         grid-template-columns: 1fr 1fr;
         column-gap: var(--size-800);
     }

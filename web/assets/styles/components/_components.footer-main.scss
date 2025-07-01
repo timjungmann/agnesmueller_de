@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @include text-style('300');
+    // @include text-style('300');
 }
 
 .footer__social {
@@ -16,7 +16,7 @@
     gap: var(--body-p);
 
     .body--imprint & {
-    visibility: hidden;
-    pointer-events: none;
+        visibility: hidden;
+        pointer-events: none;
     }
 }

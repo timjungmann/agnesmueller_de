@@ -71,13 +71,13 @@
 }
 
 .header-main__nav {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
+    @include respond-to('md') {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
-
 
 .header-main__nav,
 .header-main__about {
