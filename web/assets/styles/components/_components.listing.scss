@@ -13,7 +13,7 @@
     pointer-events: none;
 
     h2 {
-        @include text-style('500');
+        // @include text-style('500');
         @include text-style('display-medium');
         cursor: pointer;
         pointer-events: all;

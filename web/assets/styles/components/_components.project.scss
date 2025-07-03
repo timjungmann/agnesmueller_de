@@ -15,10 +15,6 @@
         @include text-style('display');
         @include text-style('600');
     }
-
-    p {
-        @include text-style('500');
-    }
 }
 
 .project__headline {
