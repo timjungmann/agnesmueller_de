@@ -38,6 +38,7 @@
 
         {# MAIN #}
         <main tabindex="-1" id="main" class="main">
+            <h1 class="sr-only">{% block site_title %}{% endblock %}</h1>
             {% block content %}
                 {{ content | safe }}
             {% endblock %}

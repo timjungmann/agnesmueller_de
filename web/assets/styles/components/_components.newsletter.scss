@@ -4,13 +4,12 @@
 
 .newsletter {
     h2 {
-        @include text-style('500');
         @include text-style('display-medium');
     }
 }
 
 .newsletter__form {
-    margin-top: var(--size-100);
+    margin-top: var(--size-200);
 }
 
 .newsletter__input {

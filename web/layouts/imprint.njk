@@ -2,6 +2,8 @@
 
 {% block body_class %}body--imprint{% endblock %}
 
+{% block site_title %}Imprint{% endblock %}
+
 {% block header %}
     {% include "partials/header-main.njk" %}
 {% endblock %}
@@ -11,20 +13,20 @@
 
     <div class="imprint | flow-800">
         {% if imprint.credits | length %}
-            <p>{{ site.url }}</p>
-            <div class="imprint__credits">
+            {# <p>{{ site.url }}</p> #}
+            <div class="imprint__credits | text-field">
                 {{ imprint.credits.text|portableToHtml|safe }}
             </div>
         {% endif %}
 
         {% if imprint.body | length %}
-            <div class="imprint__body">
+            <div class="imprint__body | text-field">
                 {{ imprint.body.text|portableToHtml|safe }}
             </div>
         {% endif %}
 
-        <div class="imprint__sponsors | flow-400">
-            <h3>Supported by:</h3>
+        <div class="imprint__sponsors | text-field">
+            <h3>Supported by</h3>
 
             <div class="imprint__logos">
                 <img src="/assets/logos/logo-neustart.png" alt="Neustart Kultur Logo">

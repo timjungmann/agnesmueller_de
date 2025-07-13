@@ -137,7 +137,12 @@
 }
 
 .project__related {
-    margin-top: var(--size-800);
+    margin-top: var(--size-600);
+
+    h3 {
+        @include text-style('display-medium');
+        @include text-style('400');
+    }
 }
 
 .project__related-list {

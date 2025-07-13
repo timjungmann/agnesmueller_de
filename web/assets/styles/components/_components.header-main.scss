@@ -14,37 +14,22 @@
         position: sticky;
         top: 0;
 
-        .body--works & {
-            padding-block-end: 0.2rem;
+        // Blur fade
+        padding-block-end: 0.2rem;
 
-            &:before {
-                content: '';
-                z-index: 100;
-                pointer-events: none;
-                background: rgba(255, 255, 255, .001);
-                position: absolute;
-                inset-block-start: 0;
-                inset-inline-start: 0;
-                inset-inline-end: 0;
-                block-size: 4.2rem;
-                backdrop-filter: blur(2px);
-                mask-image: linear-gradient(to bottom, black 2.4rem, transparent 4.2rem);
-            }
+        &:before {
+            content: '';
+            z-index: 100;
+            pointer-events: none;
+            background: rgba(255, 255, 255, .001);
+            position: absolute;
+            inset-block-start: 0;
+            inset-inline-start: 0;
+            inset-inline-end: 0;
+            block-size: 4.2rem;
+            backdrop-filter: blur(2px);
+            mask-image: linear-gradient(to bottom, black 2.4rem, transparent 4.2rem);
         }
-
-        // &:after {
-        //     content: '';
-        //     z-index: 100;
-        //     pointer-events: none;
-        //     background: rgba(255, 255, 255, .001);
-        //     position: absolute;
-        //     inset-block-start: 0;
-        //     inset-inline-start: 0;
-        //     inset-inline-end: 0;
-        //     block-size: 4.8rem;
-        //     opacity: 1;
-        //     background: linear-gradient(to bottom, white 2.4rem, transparent 4.8rem);
-        // }
     }
 }
 
@@ -90,16 +75,9 @@
     &.is-active {
         @include underline();
     }
+}
 
-    // &:first-child {
-        //     &:after {
-            //         content: '/';
-            //         padding-left: .5ch;
-            //     }
-            // }
-        }
-
-        .header-main__about {
+.header-main__about {
     &.is-active {
         @include underline();
     }

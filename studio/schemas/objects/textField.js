@@ -10,12 +10,14 @@ export default {
             of: [
                 { type: 'block',
                     marks: {
-                        decorators: []
+                        decorators: [
+                            { title: 'Bold', value: 'strong' }
+                        ]
                     },
                     styles: [
                         {title: 'Normal', value: 'normal'},
-                        {title: 'H3', value: 'h3'},
-
+                        {title: 'Headline 1', value: 'h2'},
+                        {title: 'Headline 2', value: 'h3'},
                     ],
                     lists: [],
                 }

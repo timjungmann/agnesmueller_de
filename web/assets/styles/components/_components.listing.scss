@@ -47,10 +47,7 @@
 
 .listing__list {
     h3 {
-        @include text-style('400');
         @include text-style('display-medium');
-        cursor: pointer;
-        pointer-events: all;
     }
 
     dl {
