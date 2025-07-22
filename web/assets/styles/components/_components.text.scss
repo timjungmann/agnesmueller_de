@@ -58,9 +58,9 @@
         --flow-space: var(--size-400);
         transition: opacity .3s ease-in-out, max-height .2s ease-in-out;
         margin-top: var(--size-600);
-        padding-bottom: var(--size-1000);
+        padding-bottom: var(--size-800);
         opacity: 1;
-        max-height: 80rem; // adjust if necessary
+        max-height: 200rem; // adjust if necessary
     }
 
     @include respond-to(lg) {
@@ -69,6 +69,7 @@
 
         .is-active & {
             margin-top: var(--size-400);
+            max-height: 110rem; // adjust if necessary
         }
 
         &:before {
