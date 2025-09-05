@@ -4,7 +4,6 @@ export default {
     type: 'document',
     fieldsets: [
 		{ name: 'main', title: 'Main' },
-		{ name: 'hero', title: 'Hero' },
 		{ name: 'projects', title: 'Projects' },
 	],
     fields: [
@@ -13,26 +12,6 @@ export default {
             name: 'title',
             type: 'string',
 			fieldset: 'main',
-        },
-        {
-            title: 'Hero Images Left',
-            name: 'heroImgsLeft',
-            type: 'array',
-            of: [
-                { type: 'mediaAsset' },
-            ],
-            description: 'Add images to be displayed on the left side of the hero section',
-			fieldset: 'hero',
-        },
-        {
-            title: 'Hero Images Right',
-            name: 'heroImgsRight',
-            type: 'array',
-            of: [
-                { type: 'mediaAsset' },
-            ],
-            description: 'Add images to be displayed on the right side of the hero section',
-			fieldset: 'hero',
         },
         {
             title: 'News Selection',

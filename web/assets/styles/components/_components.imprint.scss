@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 .imprint {
-    padding: 0 var(--body-p);
+    padding: 2rem var(--body-p) 0;
     // @include text-style('700');
 
     @include respond-to(lg) {
