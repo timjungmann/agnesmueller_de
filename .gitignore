@@ -1,0 +1,35 @@
+# Mac files
+.DS_Store
+/.idea
+/.vscode
+
+# Dependency directories
+node_modules
+
+# lerna files
+/lerna-debug.log
+
+# Vendor files
+# vendor
+
+# Custom config parts
+config/build/custom.js
+config/license.key
+
+# Lint results
+eslint-result.html
+stylelint-result.txt
+
+# Log files
+npm-debug.log
+
+# Gitkeep should always be added
+!.gitkeep
+
+yarn.lock
+
+# Build stuff
+_site/
+dist
+.env
+

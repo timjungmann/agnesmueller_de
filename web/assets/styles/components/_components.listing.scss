@@ -1,0 +1,80 @@
+/*------------------------------------*\
+#LISTING
+\*------------------------------------*/
+
+.listing {
+    position: relative;
+}
+
+.listing__headline {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+
+    h2 {
+        // @include text-style('500');
+        @include text-style('display-medium');
+        cursor: pointer;
+        pointer-events: all;
+    }
+
+    &::-webkit-details-marker,
+    &::marker {
+        display: none;
+        content: "";
+    }
+
+    &:after {
+        content: '';
+        cursor: pointer;
+        pointer-events: all;
+        padding-left: var(--size-100);
+        width: 1.4rem;
+        height: 1.4rem;
+        border-radius: 50%;
+        background-color: var(--bg-button);
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMCAyMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGxpbmUgeTE9Ii0wLjUiIHgyPSIxMSIgeTI9Ii0wLjUiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwLjAwMzAwMTQ1IDAuOTk5OTk1IDQuNSAxMC42NDg3KSIgc3Ryb2tlPSJibGFjayIvPgo8bGluZSB5MT0iLTAuNSIgeDI9IjExIiB5Mj0iLTAuNSIgdHJhbnNmb3JtPSJtYXRyaXgoMCAxIC0wLjk5OTk5NSAtMC4wMDMwMDE0NSA5LjUgNS4xNDg2OCkiIHN0cm9rZT0iYmxhY2siLz4KPC9zdmc+Cg==);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100% 100%;
+
+        details[open] & {
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMCAyMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGxpbmUgeTE9Ii0wLjUiIHgyPSIxMSIgeTI9Ii0wLjUiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwLjAwMzAwMTQ1IDAuOTk5OTk1IDQuNSAxMC42NDg5KSIgc3Ryb2tlPSJibGFjayIvPgo8L3N2Zz4K);
+        }
+    }
+}
+
+.listing__list {
+    h3 {
+        @include text-style('display-medium');
+    }
+
+    dl {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        column-gap: 1rem;
+    }
+
+    dt {
+        grid-column: 1 / span 1;
+    }
+
+    dd {
+        grid-column: 2 / span 4;
+    }
+
+    @include respond-to(lg) {
+        dl {
+            grid-template-columns: 1fr 6fr;
+        }
+
+        dt {
+            grid-column: 1 / span 1;
+        }
+
+        dd {
+            grid-column: 2 / span 6;
+        }
+    }
+}

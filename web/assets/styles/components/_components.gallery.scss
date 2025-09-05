@@ -1,0 +1,68 @@
+/*------------------------------------*\
+#Media section gallery
+\*------------------------------------*/
+
+
+.gallery {
+    width: 100%; // important for swiper caret-color
+    height: fit-content;
+}
+
+.gallery--left {
+    @include respond-to(lg) {
+        grid-column: 1 / span 10;
+    }
+}
+
+.gallery--right {
+    @include respond-to(lg) {
+        grid-column: 3 / span 10;
+    }
+}
+
+.gallery__item {
+    display: grid;
+    align-items: center;
+    width: 100%;
+}
+
+.gallery__image {
+
+}
+
+.swiper-slide {
+
+}
+
+.gallery__figure {
+    --_media-h: calc((100vw - 2 * var(--body-p)) * var(--gallery-ratio));
+    block-size: calc(var(--_media-h) + 1.75rem);
+
+    img {
+        overflow: hidden;
+        block-size: var(--_media-h);
+        inline-size: calc(var(--_media-h) / var(--aspect-ratio));
+    }
+
+    @include respond-to(lg) {
+        --_media-h: calc(49vw * var(--gallery-ratio));
+    }
+}
+
+.swiper-pagination {
+    font-size: var(--size-300);
+}
+
+.gallery__caption {
+    font-size: var(--size-300);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-right: 4rem;
+    opacity: 0;
+    transition: opacity .4s ease-in-out;
+
+    .swiper-slide-active & {
+        opacity: 1;
+    }
+}

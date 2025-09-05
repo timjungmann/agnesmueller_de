@@ -1,0 +1,66 @@
+/*------------------------------------*\
+  #NEWSLETTER
+\*------------------------------------*/
+
+.newsletter {
+    h2 {
+        @include text-style('display-medium');
+    }
+}
+
+.newsletter__form {
+    margin-top: var(--size-200);
+}
+
+.newsletter__input {
+    display: flex;
+    column-gap: var(--size-400);
+    flex-direction: column;
+
+    label {
+        display: none;
+    }
+
+    input {
+        all: unset;
+        border: 1px solid var(--border-default);
+        border-radius: 1px;
+        padding: var(--size-100) var(--size-200);
+        width: 28ch;
+
+        &::placeholder {
+            color: var(--text-default);
+            opacity: 0.4;
+        }
+    }
+
+    @include respond-to('lg') {
+        align-items: center;
+        flex-direction: row;
+        column-gap: var(--size-400);
+    }
+}
+
+.newsletter__submit {
+    align-self: flex-start;
+    padding-inline: 0;
+}
+
+.newsletter__success {
+    display: none;
+
+    .was-successful & {
+		display: block;
+	}
+}
+
+.newsletter__response {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+	padding: var(--size-200);
+
+    &:after {
+        content: ' '; // force min-height of box to limit content shifts on validation
+    }
+}

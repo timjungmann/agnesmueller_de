@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html itemscope="itemscope" itemtype="http://schema.org/WebPage" lang="{% if site.lang %}{{ site.lang }}{% else %}{{ lang }}{% endif %}">
+    <head>
+        {% set seo = home[0].seo %}
+
+        <meta charset="utf-8">
+        <title>{% if dataContent.title|length %}{{ dataContent.title }}{% else %}Agnes Müller{% endif %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="referrer" content="no-referrer-when-downgrade">
+
+        {# todo just for now, fix before launch #}
+        <meta name="robots" content="noindex, nofollow" />
+
+        {# {% block robots %}
+            <meta name="robots" content="{% if isDev %}noindex,nofollow{% else %}index,follow{% endif %}">
+        {% endblock %} #}
+
+        {# Preload Font #}
+        <link rel="preload" href="{% webpack 'fonts/Inter-Medium.woff2' %}" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{% webpack 'fonts/Inter-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{% webpack 'fonts/Inter-SemiBold.woff2' %}" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{% webpack 'fonts/InterDisplay-Medium.woff2' %}" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{% webpack 'fonts/InterDisplay-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
+
+        {# Meta tags #}
+        {% include "partials/meta.njk" %}
+
+        <link rel="stylesheet" href="{% webpack 'main.css' %}">
+    </head>
+
+    <body class="body {% block body_class %}{% endblock %}" id="body">
+        {# HEADER #}
+        <header class="header-main">
+            {% block header %}
+                {{ content | safe }}
+            {% endblock %}
+        </header>
+
+        {# MAIN #}
+        <main tabindex="-1" id="main" class="main">
+            <h1 class="sr-only">{% block site_title %}{% endblock %}</h1>
+            {% block content %}
+                {{ content | safe }}
+            {% endblock %}
+        </main>
+
+        <footer class="footer">
+            <div class="footer__social">
+                <a href="https://vimeo.com/user55838417" target="_blank">Vimeo</a>
+                <a href="https://www.instagram.com/agnes_mueller_/" target="_blank">Instagram</a>
+            </div>
+
+            {% block imprint_link %}
+                <a href="/imprint">Imprint</a>
+            {% endblock %}
+        </footer>
+
+        <script async defer src="{% webpack 'main.js' %}"></script>
+
+        {# Plausible #}
+        {# todo implement? #}
+        {# <script defer data-domain="studio-rueda.com" src="https://plausible.io/js/script.js"></script> #}
+
+        {# Mailchimp #}
+        {# todo need this? #}
+        {# <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script> #}
+    </body>
+</html>

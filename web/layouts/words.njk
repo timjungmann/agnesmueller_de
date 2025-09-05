@@ -1,0 +1,16 @@
+{% extends "./base.njk" %}
+
+{% block body_class %}body--words{% endblock %}
+
+{% block site_title %}Words{% endblock %}
+
+{% block header %}
+    {% set activeState = 'words' %}
+    {% include "partials/header-main.njk" %}
+{% endblock %}
+
+{% block content %}
+    {# Projects #}
+    {% set textsList = words[0].textSelection %}
+    {% include "components/text-list.njk" %}
+{% endblock %}

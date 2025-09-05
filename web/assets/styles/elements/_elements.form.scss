@@ -1,0 +1,65 @@
+/*------------------------------------*\
+  #Form elements
+\*------------------------------------*/
+
+input,
+textarea {
+    font: inherit;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    appearance: none;
+
+	&::placeholder {
+		opacity: 0;
+	}
+}
+
+.form__floating {
+    position: relative;
+}
+
+.form__input {
+	width: 100%;
+    display: block;
+    transition: border-color 0.15s ease-in-out, background-color 0.1s linear;
+    border-bottom: var(--border-w) solid black;
+
+    .form__floating & {
+        line-height: inherit;
+    }
+
+	// overwrite general focus style
+	&:focus-visible {
+		// box-shadow: none;
+	}
+
+	&:not(:placeholder-shown) {
+	}
+}
+
+.form__label {
+    display: inline-block;
+	transition: transform .05s $trans-func--ease-in-out;
+
+    .form__floating & {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        overflow: hidden;
+        text-align: start;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding-bottom: 0.2rem;
+        transform-origin: 0 0;
+    }
+
+    .form__floating .form__input:focus-visible ~ &,
+    .form__floating .form__input:not(:placeholder-shown) ~ & {
+		transform: translateY(-1.2rem);
+	}
+}

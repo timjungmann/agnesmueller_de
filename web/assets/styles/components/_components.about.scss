@@ -1,0 +1,69 @@
+/*------------------------------------*\
+#ABOUT
+\*------------------------------------*/
+
+.about {
+    display: grid;
+    padding: 2rem var(--body-p) 10rem;
+
+    @include respond-to(lg) {
+        padding: 0 var(--body-p) 10rem;
+        grid-template-columns: 1fr 1fr;
+        column-gap: var(--size-800);
+    }
+}
+
+.about__statement {
+    max-width: var(--measure);
+}
+
+.about__cv {
+    // summary {
+    //     cursor: pointer;
+    //     font-weight: bold;
+    //     display: flex;
+    //     column-gap: var(--size-200);
+
+    //     &:after {
+    //         content: "+";
+    //         font-size: 1.2rem;
+    //         font-weight: normal;
+    //         margin-top: -0.25rem;
+    //         border-radius: 50%;
+    //     }
+    // }
+
+    // @media (prefers-reduced-motion: no-preference) {
+    //     @supports (content-visibility: auto) {
+    //         interpolate-size: allow-keywords;
+
+    //         &::details-content {
+    //             opacity: 0;
+    //             block-size: 0;
+    //             overflow-y: clip;
+    //             transition: content-visibility .4s allow-discrete,
+    //                         opacity .4s,
+    //                         block-size .4s;
+    //         }
+
+    //         &[open]::details-content {
+    //             opacity: 1;
+    //             block-size: fit-content;
+    //         }
+    //     }
+    // }
+
+    // &[open] {
+    //     summary:after {
+    //         content: "-";
+    //     }
+    // }
+}
+
+.about__right {
+    margin-top: var(--size-600);
+
+    @include respond-to('lg') {
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,48 @@
+<div class="about">
+    {# Left column #}
+    <div class="about__left | flow-600">
+        {# Artist statement #}
+        <div class="about__statement | text-field">
+            {{ about.artistStatement.text|portableToHtml|safe }}
+        </div>
+
+        {# Newsletter #}
+        <div class="about__newsletter | js-newsletter">
+            {% include "components/newsletter.njk" %}
+        </div>
+
+        {# Contact #}
+        <div class="about__contact | text-field">
+            {{ about.contact.text|portableToHtml|safe }}
+        </div>
+    </div>
+
+    {# Right column #}
+    <div class="about__right | flow-600">
+        {# CV #}
+        {% if about.cv | length %}
+            <details class="about__cv listing | flow-200">
+                <summary class="listing__headline">
+                    <h2>CV</h2>
+                </summary>
+
+                <div class="listing__lists | flow-600">
+                    {% for listing in about.cv %}
+                        <div class="listing__list | flow-50">
+                            <h3>{{ listing.groupTitle }}</h3>
+
+                            <dl>
+                                {% for entry in listing.entries %}
+                                    <dt>{{ entry.year }}</dt>
+                                    {% for detail in entry.details %}
+                                        <dd>{{ detail }}</dd>
+                                    {% endfor %}
+                                {% endfor %}
+                            </dl>
+                        </div>
+                    {% endfor %}
+                </div>
+            </details>
+        {% endif %}
+    </div>
+</div>

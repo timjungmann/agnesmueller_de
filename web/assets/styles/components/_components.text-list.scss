@@ -1,0 +1,12 @@
+.text-list {
+    margin-top: 2rem;
+    padding-inline: var(--body-p);
+
+    > * + * {
+        margin-top: var(--size-400);
+    }
+
+    @include respond-to('lg') {
+        margin-top: 0;
+    }
+}

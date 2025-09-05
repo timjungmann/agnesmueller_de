@@ -1,0 +1,36 @@
+/*------------------------------------*\
+  #MEDIA-BOX
+\*------------------------------------*/
+
+/**
+ * Provide a media container in order to display media (usually images)
+ * cropped to certain ratios and provide a placeholder box while images
+ * are still loading
+ *
+ * 1. Set up a positioning context in which the image can sit.
+ * 2. This is the crucial part: where the cropping happens.
+ * 3. Show a background style before lazy images are shown
+ */
+
+// media box containing images or videos
+// by default aspect ratio is defined by content
+.media-box {
+    position: relative; // [1]
+    overflow: hidden; // [2]
+
+    img,
+    video,
+    iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+}
+
+.media-box--video {
+    @include aspect-ratio(calc(var(--aspect-ratio, 0.5625) * 100%));
+}

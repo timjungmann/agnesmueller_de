@@ -1,0 +1,21 @@
+/*------------------------------------*\
+  #main
+\*------------------------------------*/
+
+.main {
+    z-index: map-get($z-index, main);
+    margin-top: calc(var(--header-h) * -1);
+    padding-top: 1.8rem;
+    padding-bottom: 20rem;
+    position: relative;
+    flex-grow: 1;
+
+    .body--imprint & {
+        padding-bottom: 6rem !important;
+    }
+
+    @include respond-to(lg) {
+        // padding-bottom: 40rem;
+        padding-top: 3.6rem;
+    }
+}

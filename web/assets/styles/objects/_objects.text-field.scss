@@ -1,0 +1,53 @@
+/*------------------------------------*\
+  #TEXT FIELD
+\*------------------------------------*/
+
+.text-field {
+    max-width: var(--measure);
+    word-break: break-word;
+
+    > * + * {
+        --flow-space: var(--size-400);
+        margin-top: var(--flow-space);
+    }
+
+    a {
+        @include underline();
+    }
+
+    strong {
+        @include text-style('display-medium');
+    }
+
+    p + p {
+        --flow-space: 0;
+		text-indent: 2ch;
+    }
+
+    h2 {
+        @include text-style('display');
+        @include text-style('800');
+
+        --flow-space: var(--size-600);
+
+
+        @include respond-to('lg') {
+            @include text-style('850');
+        }
+    }
+
+    h2 + p {
+        --flow-space: var(--size-600);
+    }
+
+    h3 {
+        @include text-style('display');
+        @include text-style('600');
+
+        --flow-space: var(--size-600);
+    }
+
+    h3 + p {
+        --flow-space: var(--size-100);
+    }
+}

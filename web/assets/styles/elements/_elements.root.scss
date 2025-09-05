@@ -1,0 +1,43 @@
+/*------------------------------------*\
+  #ROOT
+\*------------------------------------*/
+
+/**
+ * Default definition of custom properties
+ */
+
+:root {
+    // Add token vars
+    @include create-custom-properties($text-colors, false, 'text-');
+    @include create-custom-properties($bg-colors, false, 'bg-');
+    @include create-custom-properties($border-colors, false, 'border-');
+    @include create-custom-properties($size-scale, false, 'size-');
+
+    // Add custom properties for ui definitions
+    @include create-custom-properties($ui-props, true);
+
+    [data-theme="light"] {
+        // invert colors for darkmode
+        @include create-custom-properties($text-colors-light, false, 'text-');
+        @include create-custom-properties($bg-colors-light, false, 'bg-');
+        @include create-custom-properties($border-colors-light, false, 'border-');
+    }
+
+    // todo use this?
+    // Define page container
+    // - The .container is a wrapper for the inner .page-grid
+    // - Since it uses calcs in can unfortunately not be defined inside the ui.settings
+    // - Will only be used for lg in this project
+    // --container-w: 96vw;
+
+    // @include respond-to(lg) {
+    //     --container-w: min(36rem, 98%);
+    // }
+
+    // Use svh if possible but provide fallback here
+    --100vh: 100vh;
+
+    @supports (height: 100svh) {
+        --100vh: 100svh;
+    }
+}

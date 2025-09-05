@@ -1,0 +1,84 @@
+/*------------------------------------*\
+#Header Logo and navigation
+\*------------------------------------*/
+
+.header-main {
+    padding-inline: var(--body-p);
+    background-color: var(--bg-default);
+
+    &:not(.has-modal &) {
+        z-index: 2;
+    }
+
+    @include respond-to(lg) {
+        position: sticky;
+        top: 0;
+
+        // Blur fade
+        padding-block-end: 0.2rem;
+
+        &:before {
+            content: '';
+            z-index: 100;
+            pointer-events: none;
+            background: rgba(255, 255, 255, .001);
+            position: absolute;
+            inset-block-start: 0;
+            inset-inline-start: 0;
+            inset-inline-end: 0;
+            block-size: 4.2rem;
+            backdrop-filter: blur(2px);
+            mask-image: linear-gradient(to bottom, black 2.4rem, transparent 4.2rem);
+        }
+    }
+}
+
+.header-main__container {
+    height: var(--header-h);
+    z-index: map-get($z-index, header);
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    align-items: center;
+}
+
+.header-main__list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-main__logo {
+    @include respond-to('lg') {
+        pointer-events: all;
+    }
+}
+
+.header-main__nav {
+    @include respond-to('md') {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.header-main__nav,
+.header-main__about {
+    .body--imprint & {
+        display: none;
+    }
+}
+
+.header-main__nav-link {
+    &.is-active {
+        @include underline();
+    }
+}
+
+.header-main__about {
+    &.is-active {
+        @include underline();
+    }
+}

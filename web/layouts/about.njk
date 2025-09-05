@@ -1,0 +1,16 @@
+{% extends "./base.njk" %}
+
+{% block body_class %}body--about{% endblock %}
+
+{% block site_title %}About{% endblock %}
+
+{% block header %}
+    {% set activeState = 'about' %}
+    {% include "partials/header-main.njk" %}
+{% endblock %}
+
+{% block content %}
+    {# About #}
+    {% set about = about[0] %}
+    {% include "components/about.njk" %}
+{% endblock %}

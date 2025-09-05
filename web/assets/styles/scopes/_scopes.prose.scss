@@ -1,0 +1,48 @@
+/*------------------------------------*\
+  #PROSE
+\*------------------------------------*/
+
+.prose {
+    a:hover,
+    s {
+        text-decoration-thickness: 7%;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        & + p,
+        & + h2,
+        & + h3,
+        & + h4,
+        & + ul,
+        & + span,
+        & + ol {
+            --flow-space: 0px;
+        }
+    }
+
+    ul {
+        list-style: disc outside;
+
+        li {
+            margin-left: 2ex;
+        }
+    }
+
+    ol {
+        li {
+            counter-increment: step-counter;
+            display: flex;
+
+            &:before {
+                content: counter(step-counter);
+                flex-shrink: 0;
+                width: 3ex;
+                display: inline-block;
+                font-variant-numeric: tabular-nums;
+            }
+        }
+    }
+}

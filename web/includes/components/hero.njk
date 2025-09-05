@@ -1,0 +1,37 @@
+<div class="hero">
+    {# eleventy img #}
+    {% set sizes = '(min-width: 64em) 50vw' %}
+    {% set widths = [320, 640, 800] %}
+
+    {# Left column #}
+    <div class="hero__left">
+        {% for image in heroImagesLeft %}
+            <figure class="hero__img{% if loop.index0 == 0 %} is-active{% endif %} | js-hero-left" id="{{ loop.index0 }}">
+                {% image
+                    image.asset.url,
+                    image.altText,
+                    sizes,
+                    widths,
+                    'lazy',
+                    image.asset.originalFilename
+                %}
+            </figure>
+        {% endfor %}
+    </div>
+
+    {# Right column #}
+    <div class="hero__right">
+        {% for image in heroImagesRight %}
+            <figure class="hero__img{% if loop.index0 == 0 %} is-active{% endif %} | js-hero-right" id="{{ loop.index0 }}">
+                {% image
+                    image.asset.url,
+                    image.altText,
+                    sizes,
+                    widths,
+                    'lazy',
+                    image.asset.originalFilename
+                %}
+            </figure>
+        {% endfor %}
+    </div>
+</div>

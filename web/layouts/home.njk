@@ -1,0 +1,17 @@
+{% extends "./base.njk" %}
+
+{% block body_class %}body--works{% endblock %}
+
+{% block site_title %}Works{% endblock %}
+
+{% block header %}
+    {% set activeState = 'works' %}
+    {% include "partials/header-main.njk" %}
+{% endblock %}
+
+{% block content %}
+    {# Projects #}
+    {% set newsList = home[0].newsSelection %}
+    {% set projectsList = home[0].projectSelection %}
+    {% include "components/project-list.njk" %}
+{% endblock %}

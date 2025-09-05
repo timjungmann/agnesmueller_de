@@ -1,0 +1,41 @@
+{% extends "./base.njk" %}
+
+{% block body_class %}body--imprint{% endblock %}
+
+{% block site_title %}Imprint{% endblock %}
+
+{% block header %}
+    {% include "partials/header-main.njk" %}
+{% endblock %}
+
+{% block content %}
+    {% set imprint = imprint[0] %}
+
+    <div class="imprint | flow-800">
+        {% if imprint.credits | length %}
+            {# <p>{{ site.url }}</p> #}
+            <div class="imprint__credits | text-field">
+                {{ imprint.credits.text|portableToHtml|safe }}
+            </div>
+        {% endif %}
+
+        {% if imprint.body | length %}
+            <div class="imprint__body | text-field">
+                {{ imprint.body.text|portableToHtml|safe }}
+            </div>
+        {% endif %}
+
+        <div class="imprint__sponsors | text-field">
+            <h3>Supported by</h3>
+
+            <div class="imprint__logos">
+                <img src="/assets/logos/logo-neustart.png" alt="Neustart Kultur Logo">
+                <img src="/assets/logos/logo-dkb.png" alt="Deutscher Künstlerbund Logo">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block imprint_link %}
+    <a href="/">back</a>
+{% endblock %}

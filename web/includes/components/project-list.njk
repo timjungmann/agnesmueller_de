@@ -1,0 +1,153 @@
+<div class="project-list">
+    {# News #}
+    {% if newsList|length %}
+        <div class="project project--news" id="news">
+            <a href="#news" class="project__headline | js-project">
+                {# !NEED TO STAY IN ONE LINE #}
+                <h2 class="project__title"><span class="project__title-shake">News</span></h2>
+            </a>
+
+            <div class="project__body | flow-800">
+                {% for news in newsList %}
+                    <div class="project__news | flow-400">
+                        <div class="project__news-header | flow-50">
+                            <h3>{{ news.title }}</h3>
+                            {% if news.subline | length %}
+                                <p>{{ news.subline }}</p>
+                            {% endif %}
+                        </div>
+
+                        <div class="project__news-body | flow-100">
+                            <div class="text-field">
+                                {{ news.text.text|portableToHtml|safe }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+
+    {# Projects #}
+    {% for project in projectsList %}
+        <div class="project" id="{{ project.slug.current }}">
+            <a href="#{{ project.slug.current }}" class="project__headline | js-project">
+                {# !NEED TO STAY IN ONE LINE #}
+                <h2 class="project__title">{{ project.title }}</h2>{% if project.subtitle %}<span class="project__additional">, {{ project.subtitle }}</span>{% endif %}{% if project.year %}<span  class="project__additional">, {{ project.year }}</span>{% endif %}{% if project.medium %}<span  class="project__additional">, {{ project.medium }}</span>{% endif %}{% if project.material %}<span class="project__additional">, {{ project.material }}</span>{% endif %}{% if project.measurements %}<span class="project__additional">, {{ project.measurements }}</span>{% endif %}{% if project.location %}<span class="project__additional">, {{ project.location }}</span>{% endif %}{% if project.other %}<span class="project__additional">, {{ project.other }}</span>{% endif %}
+            </a>
+
+            <div class="project__body">
+                <div class="project__content | js-project-content">
+                    {# Video #}
+                    {% if project.videoAsset %}
+                        <div class="project__media media-box media-box--video | js-video-player">
+                            <iframe src="https://player.vimeo.com/video/{{ project.videoAsset.vimeoID|default('384255340') }}?dnt=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autoplay=0&amp;badge=0&amp;color=fff" frameborder="0"></iframe>
+                        </div>
+
+                    {# Images #}
+                    {% else %}
+                        {% set sizes = '(min-width: 1024px) 50vw, 100vw' %}
+                        {% set widths = [480, 600, 960, 1200] %}
+
+                        {# Determine gallery ratio #}
+                        {% set minRatio = null %}
+                        {% set maxRatio = null %}
+
+                        {% for image in project.imageAssets %}
+                            {% if image._type == 'mediaAsset' %}
+                                {% set heightWidthRatio = image.asset.metadata.dimensions.height / image.asset.metadata.dimensions.width %}
+                            {% elif image._type == 'file' %}
+                                {% set heightWidthRatio = 0.5625 %}
+                            {% endif %}
+
+                            {% if minRatio is null or heightWidthRatio < minRatio %}
+                                {% set minRatio = heightWidthRatio %}
+                            {% endif %}
+                            {% if maxRatio is null or heightWidthRatio > maxRatio %}
+                                {% set maxRatio = heightWidthRatio %}
+                            {% endif %}
+                        {% endfor %}
+
+                        {# Ensure the ratio doesn't go lower than 0.8 #}
+                        {% set finalRatio = minRatio %}
+                        {% if finalRatio > 0.8 %}
+                            {% set finalRatio = 0.8 %}
+                        {% endif %}
+
+                        <div class="project__media gallery swiper | js-carousel js-project-media" data-swiper-type="gallery" style="--gallery-ratio: {{ finalRatio }}">
+
+                            <div class="swiper-wrapper">
+                                {% for image in project.imageAssets %}
+                                    {% set assetRatio = image.asset.metadata.dimensions.height / image.asset.metadata.dimensions.width %}
+
+                                    {# IMAGE #}
+                                    {% if image._type == 'mediaAsset' %}
+                                        <div class="swiper-slide">
+                                            <figure class="gallery__figure | media-box" style="--aspect-ratio: {{ assetRatio }}">
+                                                {% image image.asset.url,
+                                                    image.altText,
+                                                    sizes,
+                                                    widths,
+                                                    'lazy',
+                                                    image.asset.originalFilename
+                                                %}
+
+                                                {# Caption #}
+                                                {% if image.caption | length %}
+                                                    <figcaption class="gallery__caption">
+                                                        {{ image.caption }}
+                                                    </figcaption>
+                                                {% endif %}
+                                            </figure>
+                                        </div>
+
+                                    {# VIDEO #}
+                                    {% elif image._type == 'file' %}
+                                        <div class="swiper-slide">
+                                            <video autoplay muted loop playsinline>
+                                                <source src="{{ image.asset.url }}" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                            {# Pagination and controls #}
+                            {% if project.imageAssets | length > 1 %}
+                                <!-- swiper navigation buttons -->
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+
+                                <!-- Swiper pagination -->
+                                <div class="swiper-pagination"></div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+                    {# Text #}
+                    <div class="project__text">
+                        {% if project.desc.text | length %}
+                            <div class="text-field">
+                                {{ project.desc.text|portableToHtml|safe }}
+                            </div>
+                        {% endif %}
+
+                        {# Related #}
+                        {% if project.relatedProjects | length %}
+                            <div class="project__related | text-field flow-200">
+                                <h3>You may also like:</h3>
+
+                                <div class="project__related-list">
+                                    {% for related in project.relatedProjects %}
+                                        <a href="/{% if related._type == 'texts' %}words{% endif %}#{{ related.slug.current }}" class="js-related-link" data-target-slug="{{ related.slug.current }}"><span>{{ related.title }}</span></a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

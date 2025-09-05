@@ -1,0 +1,46 @@
+///*----------------------------------*\
+//  #UI
+//\*----------------------------------*/
+
+// Project-level settings and setup for custom properties dealing with the ui
+//
+// The $ui-props map will automatically be output as custom properties in the :root styles
+// -> ./elements/_elements.root.scss
+
+$ui-props: (
+    // default values
+    'default': (
+        'border-w': 1px,
+        'body-p': 1rem,
+        'measure': 64ch,
+
+        'text-underline-offset': 0.3ex,
+        'text-underline-thickness': 0.06em,
+
+        // common aspect ratios
+        'ratio-portrait': 1.25, // 4:5 format // default
+        'ratio-portrait-mid': 1.333, // 3:4 format
+        'ratio-portrait-max': 1.5, // 2:3 format
+        'ratio-cube': 100%, // 1:1 format
+        'ratio-landscape': 0.75, // 4:3 format
+        'ratio-landscape-mid': 0.66, // 3:2 format
+        'ratio-landscape-max': 0.615, // 13:8 format // Match 2 default portrait ratios
+        'ratio-wide': 0.56, // 16:9 format
+
+        'header-h': 2.2rem,
+    ),
+
+    'high-density': (
+        'border-w': 1.5px,
+    ),
+
+    // breakpoint md values
+    'md': (
+        // specific overwrites here
+    ),
+
+    // breakpoint lg values
+    'lg': (
+        // specific overwrites here
+    ),
+);

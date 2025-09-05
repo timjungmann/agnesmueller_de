@@ -1,0 +1,22 @@
+/*------------------------------------*\
+#Footer
+\*------------------------------------*/
+
+.footer {
+    block-size: var(--header-h);
+    padding-inline: var(--body-p);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // @include text-style('300');
+}
+
+.footer__social {
+    display: flex;
+    gap: var(--body-p);
+
+    .body--imprint & {
+        visibility: hidden;
+        pointer-events: none;
+    }
+}

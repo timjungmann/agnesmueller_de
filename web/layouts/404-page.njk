@@ -1,0 +1,11 @@
+{% extends "./base.njk" %}
+
+{% block content %}
+    <div class="container | flow-300">
+        <h1 class="text-style-400 lg:text-style-600">
+            {{ headline }}
+        </h1>
+
+        {{ content | safe }}
+    </div>
+{% endblock %}

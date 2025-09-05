@@ -1,0 +1,23 @@
+///*----------------------------------*\
+//  #ANIMATIONS
+//\*----------------------------------*/
+
+@keyframes title-shake {
+    0%, 100% {
+        -webkit-transform: rotate(2.5deg);
+        transform: rotate(2.5deg);
+    }
+
+    25% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    50% {
+        -webkit-transform: rotate(-2.5deg);
+        transform: rotate(-2.5deg);
+    }
+    75% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+}
