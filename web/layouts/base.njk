@@ -7,13 +7,7 @@
         <title>{% if dataContent.title|length %}{{ dataContent.title }}{% else %}Agnes Müller{% endif %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="referrer" content="no-referrer-when-downgrade">
-
-        {# todo just for now, fix before launch #}
-        <meta name="robots" content="noindex, nofollow" />
-
-        {# {% block robots %}
-            <meta name="robots" content="{% if isDev %}noindex,nofollow{% else %}index,follow{% endif %}">
-        {% endblock %} #}
+        <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
         {# Preload Font #}
         <link rel="preload" href="{% webpack 'fonts/Inter-Medium.woff2' %}" as="font" type="font/woff2" crossorigin>
@@ -26,6 +20,22 @@
         {% include "partials/meta.njk" %}
 
         <link rel="stylesheet" href="{% webpack 'main.css' %}">
+
+        {# Structured Data - helps search engines understand your content #}
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "{% if seo.schemaType %}{{ seo.schemaType }}{% else %}Person{% endif %}",
+                "name": "Agnes Müller",
+                "url": "{{ site.url }}",
+                {% if seo.description %}"description": "{{ seo.description }}",{% endif %}
+                {% if site.ogimage %}"image": "{{ site.ogimage }}",{% endif %}
+                "sameAs": [
+                    "https://vimeo.com/user55838417",
+                    "https://www.instagram.com/agnes_mueller_/"
+                ]
+            }
+        </script>
     </head>
 
     <body class="body {% block body_class %}{% endblock %}" id="body">
@@ -46,8 +56,8 @@
 
         <footer class="footer">
             <div class="footer__social">
-                <a href="https://vimeo.com/user55838417" target="_blank">Vimeo</a>
-                <a href="https://www.instagram.com/agnes_mueller_/" target="_blank">Instagram</a>
+                <a href="https://vimeo.com/user55838417" target="_blank" rel="noopener noreferrer" aria-label="Agnes Müller on Vimeo">Vimeo</a>
+                <a href="https://www.instagram.com/agnes_mueller_/" target="_blank" rel="noopener noreferrer" aria-label="Agnes Müller on Instagram">Instagram</a>
             </div>
 
             {% block imprint_link %}
