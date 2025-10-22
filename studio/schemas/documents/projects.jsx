@@ -106,6 +106,13 @@ export default {
                 },
             ],
         },
+        {
+            title: "SEO Description",
+            name: "seoDescription",
+            type: "text",
+            description: "SEO meta description for this project page (150-160 characters recommended)",
+            fieldset: 'meta',
+        },
     ],
     preview: {
         select: {

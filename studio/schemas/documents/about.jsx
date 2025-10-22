@@ -62,6 +62,12 @@ export default {
                     ]
                 }
             ]
+        },
+        {
+            title: "SEO Description",
+            name: "seoDescription",
+            type: "text",
+            description: "SEO meta description for About page (150-160 characters recommended)",
         }
     ],
     preview: {

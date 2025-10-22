@@ -4,6 +4,7 @@ const client = require('../utils/sanityClient.js');
 async function getProjects() {
     const filter = groq`*[_type == "homePage"]{
         ...,
+        seoDescription,
         heroImgsLeft[]{
             ...,
             asset->
