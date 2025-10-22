@@ -1,6 +1,7 @@
 {
-    "name": "Agnes Mueller",
-    "short_name": "Agnes Mueller",
+    "name": "Agnes Müller",
+    "short_name": "Agnes Müller",
+    "description": "Contemporary artist working in performance, video, and drawing",
     "icons": [
         {
             "src": "/assets/favicon/android-chrome-192x192.png",
@@ -15,6 +16,8 @@
     ],
     "theme_color": "#000000",
     "background_color": "#EFD614",
-    "start_url": "https://www.agnesmueller.com",
-    "display": "standalone"
+    "start_url": "https://agnesmueller.com/",
+    "display": "standalone",
+    "lang": "de",
+    "dir": "ltr"
 }

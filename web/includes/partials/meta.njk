@@ -1,14 +1,16 @@
 {# General #}
-<meta name="description" content="{{ seo.description }}">
-<meta name="keywords" content="Agnes Müller, artist, performance art, video, Cologne, Germany, contemporary art">
+<meta name="description" content="{{ seoDescription | default('Agnes Müller - Künstlerin. Lebt und arbeitet in Köln und München.') }}">
+<meta name="keywords" content="Agnes Müller, Künstlerin, Kunst, Performance, Art, Video, Zeichnung, Köln, München, zeitgenössisch">
+<meta name="author" content="Agnes Müller">
 
 {# Open graph related #}
-<meta property="og:title" content="{{ seo.title }}" />
+<meta property="og:title" content="{{ pageTitle | default(site.name) }}" />
 <meta property="og:type" content="{{ site.type }}" />
-<meta property="og:url" content="{{ site.url }}" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
 <meta property="og:image" content="{{ site.ogimage }}" />
 <meta property="og:site_name" content="{{ site.name }}" />
-<meta property="og:description" content="{{ seo.description }}" />
+<meta property="og:description" content="{{ seoDescription | default('Agnes Müller - Künstlerin. Lebt und arbeitet in Köln und München.') }}" />
+<meta property="og:locale" content="de_DE" />
 
 {# Favicon #}
 <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/favicon/apple-touch-icon.png' | url }}">

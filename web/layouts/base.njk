@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html itemscope="itemscope" itemtype="http://schema.org/WebPage" lang="{% if site.lang %}{{ site.lang }}{% else %}{{ lang }}{% endif %}">
     <head>
-        {% set seo = home[0].seo %}
+        {% set seoDescription = home[0].seoDescription %}
+        {% set pageTitle = dataContent.title if dataContent.title else "Agnes Müller" %}
 
         <meta charset="utf-8">
-        <title>{% if dataContent.title|length %}{{ dataContent.title }}{% else %}Agnes Müller{% endif %}</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{{ pageTitle }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="referrer" content="no-referrer-when-downgrade">
         <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+        {# DNS prefetch for external resources #}
+        <link rel="dns-prefetch" href="https://vimeo.com">
+        <link rel="preconnect" href="https://cdn.sanity.io" crossorigin>
 
         {# Preload Font #}
         <link rel="preload" href="{% webpack 'fonts/Inter-Medium.woff2' %}" as="font" type="font/woff2" crossorigin>
@@ -25,11 +31,12 @@
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
-                "@type": "{% if seo.schemaType %}{{ seo.schemaType }}{% else %}Person{% endif %}",
+                "@type": "Person",
                 "name": "Agnes Müller",
                 "url": "{{ site.url }}",
-                {% if seo.description %}"description": "{{ seo.description }}",{% endif %}
+                {% if seoDescription %}"description": "{{ seoDescription }}",{% endif %}
                 {% if site.ogimage %}"image": "{{ site.ogimage }}",{% endif %}
+                "jobTitle": "Künstlerin",
                 "sameAs": [
                     "https://vimeo.com/user55838417",
                     "https://www.instagram.com/agnes_mueller_/"
